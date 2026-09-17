@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\v1\public;
+namespace App\Http\Resources\v1\admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class JobResourceCollection extends ResourceCollection
+class JobListingResourceCollectioin extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
