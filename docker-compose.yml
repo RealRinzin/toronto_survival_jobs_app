@@ -1,5 +1,5 @@
 services:
-# NGINX - Container
+# -------------------- NGINX : CONTAINER --------------------
   nginx:
     build:
       context: ./infra/nginx
@@ -16,10 +16,33 @@ services:
     #   backend:
     #     condition: service_healthy
     #   frontend:
-    #     condition: service _healty
+    #     condition: service_healthy
     networks:
       - app-network
-  
+
+# -------------------- MYSQL : CONTAINER --------------------
+  mysql:
+    image: mysql:8.4
+    container_name: mysql_container
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: change-this-root-password
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: change-this-password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+# -------------------- NETWORK --------------------
 networks:
   app-network:
     name: toronto-survival-jobs-app-network
+
+# -------------------- VOLUMES : MYSQL DATA --------------------
+volumes:
+  mysql_data:
+    name: toronto-survival-jobs-mysql-data
