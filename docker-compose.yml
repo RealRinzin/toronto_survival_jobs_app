@@ -1,0 +1,25 @@
+services:
+# NGINX - Container
+  nginx:
+    build:
+      context: ./infra/nginx
+      dockerfile: Dockerfile
+    container_name: nginx_container
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./infra/nginx/certs:/etc/nginx/certs:ro
+      - ./logs/nginx:/var/log/nginx
+    # depends_on:
+    #   backend:
+    #     condition: service_healthy
+    #   frontend:
+    #     condition: service _healty
+    networks:
+      - app-network
+  
+networks:
+  app-network:
+    name: toronto-survival-jobs-app-network
