@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
+use App\Models\ScrapePlatform;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,11 +16,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Company::factory(20)->create();
+        ScrapePlatform::factory(20)->create();
         $this->call([
             ProvinceSeeder::class,
             CitySeeder::class,
-            ScrapePlatformSeeder::class,
+            // CompanySeeder::class,
+            // ScrapePlatformSeeder::class,
             // AreaSeeder::class,
         ]);
     }
