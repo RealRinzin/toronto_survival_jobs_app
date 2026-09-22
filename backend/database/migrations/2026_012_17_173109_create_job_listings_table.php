@@ -43,6 +43,10 @@ return new class extends Migration
             //     ->nullable()
             //     ->constrained('job_roles')
             //     ->nullOnDelete();
+            $table->foreignId('area_id')
+                ->nullable()
+                ->constrained('areas')
+                ->nullOnDelete();
 
             $table->foreignId('city_id')
                 ->nullable()
@@ -56,6 +60,7 @@ return new class extends Migration
 
             // Index these columns for the optimize and faster query
             $table->index('company_id');
+            $table->index('area_id');
             $table->index('city_id');
             $table->index('province_id');
             // $table->index('employment_type_id');

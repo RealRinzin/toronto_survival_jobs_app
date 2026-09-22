@@ -16,6 +16,8 @@ return new class extends Migration
             $table->text('name');
             $table->string('slug')->unique();
             $table->text('overview');
+            $table->decimal('latitude', 10, 7);
+            $table->decimal('longitude', 10, 7);
             $table->timestamps();
         });
     }
