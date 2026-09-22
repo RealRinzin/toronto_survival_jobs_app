@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Company;
+use App\Models\ScrapeCompanyJob;
 use App\Models\ScrapePlatform;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,12 +19,13 @@ class DatabaseSeeder extends Seeder
     {
         Company::factory(20)->create();
         ScrapePlatform::factory(20)->create();
+        ScrapeCompanyJob::factory(1)->create();
         $this->call([
             ProvinceSeeder::class,
             CitySeeder::class,
             // CompanySeeder::class,
             // ScrapePlatformSeeder::class,
-            // AreaSeeder::class,
+            AreaSeeder::class,
         ]);
     }
 }
