@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ProvinceSeeder::class,
             CitySeeder::class,
+            // AreaSeeder::class,
         ]);
         // User::factory()->create([
         //     'name' => 'Test User',

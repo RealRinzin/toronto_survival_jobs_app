@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('overview');
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
+            $table->boolean('active')->default(false);
             $table->foreignId('city_id')
                 ->nullable()
                 ->constrained('cities')

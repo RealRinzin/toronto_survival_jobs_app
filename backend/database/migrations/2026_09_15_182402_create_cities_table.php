@@ -18,7 +18,8 @@ return new class extends Migration
             $table->text('overview');
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
-          $table->foreignId('province_id')
+            $table->boolean('active')->default(false);
+            $table->foreignId('province_id')
                 ->nullable()
                 ->constrained('provinces')
                 ->nullOnDelete();
