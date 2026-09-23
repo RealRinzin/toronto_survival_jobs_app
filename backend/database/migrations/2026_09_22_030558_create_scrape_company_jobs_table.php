@@ -21,7 +21,6 @@ return new class extends Migration
             $table->enum('method', ['GET', 'POST'])->default('POST');
             $table->enum('response_type', ['json', 'html'])->default('json');
             $table->json('request_body')->nullable();            // POST payload template
-
             // Headers
             $table->string('origin')->nullable();
             $table->string('referer')->nullable();
