@@ -4,3 +4,5 @@ vendor/
 .env
 .env.local
 .env.*.local
+access.log
+error.log

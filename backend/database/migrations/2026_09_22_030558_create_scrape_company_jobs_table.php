@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('company_id')->constrained()->cascadeOnDelete();
             $table->foreignId('scrape_platform_id')->constrained()->cascadeOnDelete();
-
             // What / how to fetch
             $table->string('base_url');
             $table->enum('method', ['GET', 'POST'])->default('POST');
@@ -33,13 +32,11 @@ return new class extends Migration
             $table->string('content_type')->nullable();           // null for GET
             $table->string('user_agent')->nullable();
             $table->json('extra_headers')->nullable();            // Sec-Fetch-*, custom tokens, etc.
-
-            // JSON extraction
+            // JSON API extraction
             $table->string('json_data_path')->nullable();
             // HTML extraction
             $table->string('list_selector')->nullable();
             $table->json('selectors')->nullable();
-
             // Session / pacing
             $table->string('cookie_jar_path')->nullable();
             $table->unsignedInteger('rate_limit_seconds')->default(3); // between requests within one run
@@ -57,7 +54,6 @@ return new class extends Migration
             $table->unique(['company_id', 'scrape_platform_id']);
         });
     }
-
     /**
      * Reverse the migrations.
      */
