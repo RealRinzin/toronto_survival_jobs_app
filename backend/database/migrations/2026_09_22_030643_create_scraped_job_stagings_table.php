@@ -22,7 +22,6 @@ return new class extends Migration
             $table->foreignId('job_listing_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamp('scraped_at');
             $table->timestamps();
-
             $table->unique(['scrape_job_run_id', 'external_id']); // dedup key
         });
     }
