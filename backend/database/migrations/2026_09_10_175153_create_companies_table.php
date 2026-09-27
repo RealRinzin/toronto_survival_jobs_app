@@ -15,10 +15,16 @@ return new class extends Migration
             $table->id();
             $table->text('name');
             $table->string('slug')->unique();
+            $table->string('color_code')->default("#fff");
             $table->text('overview');
             $table->string('website');
             $table->string('brand_color');
             $table->string('logo')->default('myimage.png');
+            // Relationship
+            $table->foreignId('business_category_id')
+                ->nullable()
+                ->constrained('business_categories')
+                ->nullOnDelete();
             $table->timestamps();
         });
     }

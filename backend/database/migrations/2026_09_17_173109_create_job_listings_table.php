@@ -34,15 +34,16 @@ return new class extends Migration
                 ->constrained('companies')
                 ->nullOnDelete();
 
-            // $table->foreignId('employment_type_id')
-            //     ->nullable()
-            //     ->constrained('employment_types')
-            //     ->nullOnDelete();
+            $table->foreignId('employment_type_id')
+                ->nullable()
+                ->constrained('employment_types')
+                ->nullOnDelete();
 
-            // $table->foreignId('job_role_id')
-            //     ->nullable()
-            //     ->constrained('job_roles')
-            //     ->nullOnDelete();
+            $table->foreignId('job_category_d')
+                ->nullable()
+                ->constrained('job_categories')
+                ->nullOnDelete();
+                
             $table->foreignId('area_id')
                 ->nullable()
                 ->constrained('areas')
