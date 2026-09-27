@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('website');
             $table->string('brand_color');
             $table->string('logo')->default('myimage.png');
+            $table->string('company_size');
+            $table->integer('founded');
+            $table->string('head_quarter');
             // Relationship
             $table->foreignId('business_category_id')
                 ->nullable()
