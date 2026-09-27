@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('overview');
             $table->string('website');
+            $table->string('brand_color');
             $table->string('logo')->default('myimage.png');
             $table->timestamps();
         });
