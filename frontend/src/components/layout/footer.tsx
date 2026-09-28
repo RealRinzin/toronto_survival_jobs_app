@@ -7,11 +7,13 @@ import {
   FacebookLogoIcon,
   InstagramLogoIcon,
 } from "@phosphor-icons/react/ssr";
+
 type socialLinkType = {
   label: string;
   href: string;
   icon: Icon;
 };
+
 type BrandType = {
   title: string;
   domain: string;
@@ -61,13 +63,13 @@ export default function Footer() {
           {brand.map((brand: BrandType, index: number) => {
             return (
               <ul key={index}>
-                <li><p className="text-gray-400">{brand.domain}</p></li>
-                <li><p className="text-gray-400">{brand.description}</p></li>
+                <li><p className="font-bold text-white">{brand.domain}</p></li>
+                <li><p className="text-gray-400 py-2">{brand.description}</p></li>
                 <ul className="flex gap-4 py-4">
                   {
                     brand?.social_media.map(({label,href,icon:SocialIcon},index:number)=>{
                       return(
-                        <li key={index}> <Link href={href}><SocialIcon size={32} weight="fill" className="bg-gray-600 p-1 rounded-sm"/></Link></li>
+                        <li key={index}> <Link href={href}><SocialIcon size={32} weight="regular"/></Link></li>
                       )
                     })
                   }
