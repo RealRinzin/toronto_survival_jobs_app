@@ -1,5 +1,6 @@
 import AdUnit from "@/components/Ads/Ads";
 import HomeCategoryGrid from "@/components/home/CategoryGrid";
+import HomeFeaturedJobs from "@/components/home/FeaturedJobs";
 import HomeHeroSection from "@/components/home/HeroSection";
 import HomeHiringticker from "@/components/home/HiringTicker";
 import HomeStatsBar from "@/components/home/Statsbar";
@@ -13,6 +14,7 @@ export default function Home() {
       <HomeStatsBar />
       <AdUnit size="leaderboard" />
       <HomeCategoryGrid />
+      <HomeFeaturedJobs/>
     </>
     // HeroSection
   );

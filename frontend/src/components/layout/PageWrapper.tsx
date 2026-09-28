@@ -12,11 +12,6 @@ const maxWidthMap: Record<NonNullable<PageWrapperProps["maxWidth"]>, string> = {
   xl: "max-w-screen-xl",
   "7xl": "max-w-7xl",
 };
-const backgroundMap: Record<NonNullable<PageWrapperProps['background']>, string> = {
-  white: 'bg-white',
-  gray: 'bg-gray-50',
-  navy: 'bg-navy-900 text-white',
-}
 export default function PageWrapper({
   children,
   maxWidth = "lg",
