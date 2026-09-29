@@ -8,7 +8,6 @@ type RegisterPageProps = {
 }
 
 const AREAS = ['Downtown Toronto', 'Scarborough', 'North York', 'Etobicoke', 'Mississauga', 'Brampton', 'Other GTA']
-
 export default function RegisterPage({ onHome, onGoLogin, onRegisterSuccess }: RegisterPageProps) {
   const [step, setStep] = useState<1 | 2>(1)
   const [googleLoading, setGoogleLoading] = useState(false)

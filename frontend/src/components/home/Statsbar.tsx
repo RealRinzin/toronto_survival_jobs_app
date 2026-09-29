@@ -1,10 +1,10 @@
 import React from "react";
 const STATS = [
-  { value: '14,200+', label: 'Active Listings', icon: '💼' },
-  { value: '3,800+', label: 'Companies Hiring', icon: '🏢' },
-  { value: '92K+', label: 'Torontonians Placed', icon: '🤝' },
-  { value: '$17.20', label: 'Min. Wage (ON)', icon: '💰' },
-]
+  { value: "14,200+", label: "Active Listings"},
+  { value: "3,800+", label: "Companies Hiring"},
+  { value: "92K+", label: "Torontonians Placed"},
+  { value: "$17.20", label: "Min. Wage (ON)"},
+];
 export default function HomeStatsBar() {
   return (
     <section style={{ background: "#0d2137" }}>
@@ -13,13 +13,12 @@ export default function HomeStatsBar() {
           {STATS.map((s, i) => (
             <div
               key={s.label}
-              className="flex items-center gap-3 px-6 py-5"
+              className="flex items-center justify-center text-center gap-3 px-6 py-5"
               style={{
                 borderRight:
                   i < 3 ? "1px solid rgba(255,255,255,0.08)" : "none",
               }}
             >
-              <span className="text-2xl hidden sm:block">{s.icon}</span>
               <div>
                 <div
                   className="text-xl font-bold"

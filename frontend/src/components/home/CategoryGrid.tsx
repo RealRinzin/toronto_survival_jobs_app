@@ -1,15 +1,18 @@
+import Link from "next/link";
+import PageWrapper from "../layout/PageWrapper";
+
 const CATEGORIES = [
-  { label: 'Food & Hospitality', icon: 'FH', count: 842, color: '#b85f15' },
-  { label: 'Warehousing', icon: 'WH', count: 619, color: '#d4821a' },
-  { label: 'Retail', icon: 'RT', count: 503, color: '#1e4976' },
-  { label: 'Transportation', icon: 'TR', count: 381, color: '#b85f15' },
-  { label: 'Customer Service', icon: 'CS', count: 274, color: '#1e4976' },
-  { label: 'Construction', icon: 'CN', count: 196, color: '#0d2137' },
-]
+  { label: "Food & Hospitality", icon: "FH", count: 842, color: "#b85f15" },
+  { label: "Warehousing", icon: "WH", count: 619, color: "#d4821a" },
+  { label: "Retail", icon: "RT", count: 503, color: "#1e4976" },
+  { label: "Transportation", icon: "TR", count: 381, color: "#b85f15" },
+  { label: "Customer Service", icon: "CS", count: 274, color: "#1e4976" },
+  { label: "Construction", icon: "CN", count: 196, color: "#0d2137" },
+];
 
 export default function HomeCategoryGrid() {
   return (
-    <section className="max-w-7xl mx-auto px-5 py-14" style={{ paddingTop: 0 }}>
+    <PageWrapper>
       <div className="flex items-center justify-between mb-7">
         <div>
           <h2
@@ -22,13 +25,14 @@ export default function HomeCategoryGrid() {
             What kind of work are you looking for?
           </p>
         </div>
-        <button
+        <Link
+          href="/categories"
           // onClick={() => setPage('search')}
           className="hidden sm:block text-sm font-semibold px-4 py-2 rounded-lg border transition-all hover:bg-gray-50"
           style={{ color: "#d4821a", borderColor: "#fcd5a0" }}
         >
           All Categories →
-        </button>
+        </Link>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         {CATEGORIES.map((cat) => (
@@ -61,6 +65,6 @@ export default function HomeCategoryGrid() {
           </button>
         ))}
       </div>
-    </section>
+    </PageWrapper>
   );
 }
