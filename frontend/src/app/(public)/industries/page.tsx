@@ -1,7 +1,11 @@
-import React from 'react'
+import JobGridCols from "@/components/job/JobCardGrid";
+import React from "react";
 
 export default function Industries() {
   return (
-    <div>Industries</div>
-  )
+    <div>
+      Industries
+      <JobGridCols/>
+    </div>
+  );
 }

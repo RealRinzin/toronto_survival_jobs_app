@@ -21,7 +21,7 @@ export default function Home() {
       <HomeCategoryGrid />
       <HomePopular/>
       <HomeFeaturedJobs />
-      <GeoLocation/>
+      {/* <GeoLocation/> */}
     </>
     // HeroSection
   );

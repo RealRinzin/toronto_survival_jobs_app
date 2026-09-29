@@ -22,7 +22,7 @@ export default function JobCard() {
               <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl" style={{ background: 'linear-gradient(180deg, #d4821a, #f0a94a)' }} />
             )}
       <div className="flex items-start gap-3 pl-1">
-        <div className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0 shadow-sm"
+        <div className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 shadow-sm"
           style={{ background: job.logoColor + '18', color: job.logoColor, border: `1.5px solid ${job.logoColor}28` }}>
           {job.logo}
         </div>

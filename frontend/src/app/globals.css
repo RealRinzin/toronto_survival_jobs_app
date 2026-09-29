@@ -24,3 +24,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+@theme inline {
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-fraunces);
+  --font-mono: var(--font-dm-mono);
+}

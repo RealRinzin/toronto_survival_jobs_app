@@ -25,11 +25,17 @@ Route::get('/', function () {
     return response()->json($books);
 });
 
+Route::get('/httpclient-api',function(){
+$response = Http::get('https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/jobs');
+
+$post = $response->json();
+dd($post);
+echo $post['title'];
+echo $post['body'];
+});
+
 
 Route::get('/scrape', function () {
-
-
-
     $url = 'https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/jobs';
     $params = [
         "appliedFacets" => [
