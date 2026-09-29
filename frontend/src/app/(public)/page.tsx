@@ -9,9 +9,9 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <HomeHiringticker />
       <HomeHeroSection />
       <HomeStatsBar />
+      <HomeHiringticker />
       <AdUnit size="leaderboard" />
       <HomeCategoryGrid />
       <HomeFeaturedJobs/>

@@ -14,40 +14,28 @@ const TICKER_LOGOS = [
 
 export default function HomeHiringticker() {
   return (
-    <div
-      className="overflow-hidden border-b"
-      style={{ background: "#fafbfc", borderColor: "#f0f4f8" }}
-    >
-      <div
-        className="flex items-center py-2.5 gap-0"
-        style={{
-          animation: "ticker 28s linear infinite",
-          width: "max-content",
-        }}
-      >
-        {[...TICKER_LOGOS, ...TICKER_LOGOS].map((item, i) => (
-          <div key={i} className="flex items-center gap-2 px-5 shrink-0">
-            <div
-              className="w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold"
-              style={{ background: item.color + "18", color: item.color }}
-            >
-              {item.logo}
+      <section className="border-b overflow-hidden" style={{ background: '#fff', borderColor: '#e2e8f0' }}>
+        <div className="max-w-7xl mx-auto px-5 pt-6 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: '#6b7c93' }}>
+            Hiring now across the GTA
+          </p>
+        </div>
+        <div className="flex items-center py-5 gap-0" style={{ animation: 'ticker 28s linear infinite', width: 'max-content' }}>
+          {[...TICKER_LOGOS, ...TICKER_LOGOS].map((item, i) => (
+            <div key={i} className="flex items-center gap-3 px-7 flex-shrink-0">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold"
+                style={{ background: item.color + '14', color: item.color }}>
+                {item.logo}
+              </div>
+              <span className="text-sm font-semibold whitespace-nowrap" style={{ color: '#4a6380' }}>{item.name}</span>
             </div>
-            <span
-              className="text-xs font-medium whitespace-nowrap"
-              style={{ color: "#6b7c93" }}
-            >
-              {item.name}
-            </span>
-            <span className="ml-4 text-xs" style={{ color: "#cbd5e1" }}>
-              ·
-            </span>
-          </div>
-        ))}
-      </div>
-      <style>{`
+          ))}
+        </div>
+        <style>{`
           @keyframes ticker { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+          @media (prefers-reduced-motion: reduce) { [style*="ticker"] { animation: none !important; } }
         `}</style>
-    </div>
+      </section>
+
   );
 }

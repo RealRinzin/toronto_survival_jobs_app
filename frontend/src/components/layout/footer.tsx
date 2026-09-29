@@ -63,8 +63,8 @@ export default function Footer() {
           {brand.map((brand: BrandType, index: number) => {
             return (
               <ul key={index}>
-                <li><p className="font-bold text-white">{brand.domain}</p></li>
-                <li><p className="text-gray-400 py-2">{brand.description}</p></li>
+                <li><p className="font-bold text-white">TorontoSurvivalJobs <span className="text-orange-400 font-bold text-4xl p-0">.</span>com</p></li>
+                <li><p className="text-gray-300 text-sm py-2">{brand.description}</p></li>
                 <ul className="flex gap-4 py-4">
                   {
                     brand?.social_media.map(({label,href,icon:SocialIcon},index:number)=>{
@@ -86,7 +86,7 @@ export default function Footer() {
                     return (
                       <li
                         key={index}
-                        className="text-gray-400 font-medium py-1 hover:cursor-pointer"
+                        className="text-gray-400 font-medium py-1 hover:cursor-pointer hover:text-gray-300"
                       >
                         <Link href={link?.href}>{link?.label}</Link>
                       </li>

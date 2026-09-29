@@ -1,12 +1,12 @@
-import React from "react";
 const CATEGORIES = [
-  { label: 'Food & Hospitality', icon: '🍽️', count: 842, color: '#e05c2a' },
-  { label: 'Warehousing', icon: '📦', count: 619, color: '#FF9900' },
-  { label: 'Retail', icon: '🛍️', count: 503, color: '#003087' },
-  { label: 'Transportation', icon: '🚚', count: 381, color: '#ff6200' },
-  { label: 'Customer Service', icon: '🎧', count: 274, color: '#da1f2b' },
-  { label: 'Construction', icon: '🏗️', count: 196, color: '#1a5276' },
+  { label: 'Food & Hospitality', icon: 'FH', count: 842, color: '#b85f15' },
+  { label: 'Warehousing', icon: 'WH', count: 619, color: '#d4821a' },
+  { label: 'Retail', icon: 'RT', count: 503, color: '#1e4976' },
+  { label: 'Transportation', icon: 'TR', count: 381, color: '#b85f15' },
+  { label: 'Customer Service', icon: 'CS', count: 274, color: '#1e4976' },
+  { label: 'Construction', icon: 'CN', count: 196, color: '#0d2137' },
 ]
+
 export default function HomeCategoryGrid() {
   return (
     <section className="max-w-7xl mx-auto px-5 py-14" style={{ paddingTop: 0 }}>
@@ -23,7 +23,7 @@ export default function HomeCategoryGrid() {
           </p>
         </div>
         <button
-          // onClick={() => setPage("search")}
+          // onClick={() => setPage('search')}
           className="hidden sm:block text-sm font-semibold px-4 py-2 rounded-lg border transition-all hover:bg-gray-50"
           style={{ color: "#d4821a", borderColor: "#fcd5a0" }}
         >
@@ -34,13 +34,13 @@ export default function HomeCategoryGrid() {
         {CATEGORIES.map((cat) => (
           <button
             key={cat.label}
-            // onClick={() => setPage("search")}
+            // onClick={() => setPage('search')}
             className="flex flex-col items-center gap-3 p-5 rounded-2xl border text-center transition-all hover:-translate-y-1 hover:shadow-md group"
             style={{ background: "#fff", borderColor: "#e2e8f0" }}
           >
             <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-transform group-hover:scale-110"
-              style={{ background: cat.color + "15" }}
+              className="w-12 h-12 rounded-xl flex items-center justify-center text-xs font-bold tracking-wider transition-transform group-hover:scale-110"
+              style={{ background: cat.color + "15", color: cat.color }}
             >
               {cat.icon}
             </div>

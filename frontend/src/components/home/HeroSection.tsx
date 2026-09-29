@@ -14,7 +14,7 @@ export default function HomeHeroSection() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,26,17,0.88) 0%, rgba(10,26,17,0.72) 60%, rgba(10,26,17,0.55) 100%)",
+            "linear-gradient(to bottom, rgba(13,33,55,0.94) 0%, rgba(13,33,55,0.84) 60%, rgba(13,33,55,0.72) 100%)",
         }}
       />
       {/* Subtle dot texture */}
@@ -48,9 +48,9 @@ export default function HomeHeroSection() {
           className="text-4xl sm:text-6xl font-bold text-white leading-tight mb-5"
           style={{ fontFamily: "'Fraunces', serif", letterSpacing: "-0.025em" }}
         >
-          Real jobs.
+          Toronto works here.
           <br />
-          <span style={{ color: "#f0a94a" }}>Real pay.</span> Toronto.
+          <span style={{ color: "#f0a94a" }}>Find your next shift.</span>
         </h1>
         <p
           className="text-base sm:text-lg mb-8 max-w-xl mx-auto"
@@ -67,7 +67,7 @@ export default function HomeHeroSection() {
         >
           <div className="flex-1 flex items-center gap-3 px-3">
             <svg
-              className="w-5 h-5shrink-0"
+              className="w-5 h-5 shrink-0"
               style={{ color: "#6b7c93" }}
               fill="none"
               viewBox="0 0 24 24"
@@ -157,8 +157,8 @@ export default function HomeHeroSection() {
             <button
               key={tag}
               // onClick={() => {
-                // setSearch(tag);
-                // setPage("search");
+              //   setSearch(tag);
+              //   setPage("search");
               // }}
               className="text-xs px-3 py-1 rounded-full transition-all hover:bg-white hover:text-gray-900 font-medium"
               style={{
@@ -169,6 +169,34 @@ export default function HomeHeroSection() {
             >
               {tag}
             </button>
+          ))}
+        </div>
+
+        <div
+          className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium"
+          style={{ color: "rgba(255,255,255,0.72)" }}
+        >
+          {[
+            "Salary shown upfront",
+            "Verified employers",
+            "Free for job seekers",
+          ].map((item) => (
+            <span key={item} className="inline-flex items-center gap-2">
+              <svg
+                className="w-4 h-4"
+                style={{ color: "#f0a94a" }}
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M16.704 5.292a1 1 0 010 1.416l-7.5 7.5a1 1 0 01-1.416 0l-3.5-3.5a1 1 0 011.416-1.416l2.792 2.793 6.792-6.793a1 1 0 011.416 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              {item}
+            </span>
           ))}
         </div>
       </div>

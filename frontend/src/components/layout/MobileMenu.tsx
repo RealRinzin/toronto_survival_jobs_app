@@ -34,7 +34,7 @@ export default function MobileMenu() {
       {open && (
         <ul
           id="mobile-menu"
-          className="absolute left-0 right-0 top-full flex flex-col border-b bg-white p-2 text-sm font-bold text-gray-600 shadow-md"
+          className="absolute left-0 right-0 top-full flex flex-col border-b bg-white p-2 text-sm font-bold text-gray-600 shadow-md z-10"
         >
           {navLinks.map((link) => (
             <li key={link.label}>
