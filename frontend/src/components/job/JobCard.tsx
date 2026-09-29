@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 const JOBS = [
   { id: 1, title: 'Warehouse Associate', company: 'Amazon Fulfillment', logo: 'AM', logoColor: '#FF9900', location: 'Scarborough, ON', type: 'Full-time', salary: '$19–$22/hr', tags: ['Physical', 'No Experience'], posted: '2h ago', hot: true, rating: 3.8 },
   { id: 2, title: 'Food Service Worker', company: 'Tim Hortons', logo: 'TH', logoColor: '#c8102e', location: 'Downtown Toronto', type: 'Part-time', salary: '$17.20/hr', tags: ['Flexible Hours', 'Entry Level'], posted: '5h ago', hot: false, rating: 3.4 },
@@ -17,7 +17,7 @@ export default function JobCard() {
         {
           JOBS.map((job:any,index:number)=>{
             return(
-              <>
+              <Fragment key={index}>
             {job.hot && (
               <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl" style={{ background: 'linear-gradient(180deg, #d4821a, #f0a94a)' }} />
             )}
@@ -90,7 +90,7 @@ export default function JobCard() {
           </button>
         </div>
       </div>
-              </>
+              </Fragment>
             )
           })
         }

@@ -16,8 +16,8 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-5 py-6 w-full">
         <AdUnit size="leaderboard" />
       </div>
-      <HomePopular/>
       <HomeCategoryGrid />
+      <HomePopular/>
       <HomeFeaturedJobs />
     </>
     // HeroSection

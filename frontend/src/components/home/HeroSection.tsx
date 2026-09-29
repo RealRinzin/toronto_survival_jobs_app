@@ -19,7 +19,7 @@ export default function HomeHeroSection() {
       />
       {/* Subtle dot texture */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absoluteinset-0 opacity-[0.04]"
         style={{
           backgroundImage:
             "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)",
