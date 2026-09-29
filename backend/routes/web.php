@@ -1,13 +1,34 @@
 <?php
 
+use Illuminate\Support\Facades\Http;
+use Symfony\Component\DomCrawler\Crawler;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    $response = Http::get('https://books.toscrape.com/catalogue/category/books/philosophy_7/index.html');
+
+    $crawler = new Crawler($response->body());
+
+    $books = $crawler->filter('article.product_pod')->each(
+        function ($node) {
+            return [
+                'title' => $node->filter('h3 a')->attr('title'),
+                'price' => $node->filter('.price_color')->text(),
+                'availability' => trim(
+                    $node->filter('.availability')->text()
+                ),
+            ];
+        }
+    );
+
+    return response()->json($books);
 });
 
 
 Route::get('/scrape', function () {
+
+
 
     $url = 'https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/jobs';
     $params = [

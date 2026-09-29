@@ -5,9 +5,11 @@ import HomeHeroSection from "@/components/home/HeroSection";
 import HomeHiringticker from "@/components/home/HiringTicker";
 import HomePopular from "@/components/home/Popular";
 import HomeStatsBar from "@/components/home/Statsbar";
+import GeoLocation from "@/components/ui/geo/GeoLocation";
 import Image from "next/image";
 
 export default function Home() {
+
   return (
     <>
       <HomeHeroSection />
@@ -19,6 +21,7 @@ export default function Home() {
       <HomeCategoryGrid />
       <HomePopular/>
       <HomeFeaturedJobs />
+      <GeoLocation/>
     </>
     // HeroSection
   );
