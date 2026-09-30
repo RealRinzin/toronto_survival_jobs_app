@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('overview');
             $table->string('website');
-            $table->string('brand_color')->default('#fefefe');
+            $table->string('brand_color');
             $table->string('logo')->default('myimage.png');
             $table->integer('company_size')->default(1);
             $table->integer('founded')->default(2000);
