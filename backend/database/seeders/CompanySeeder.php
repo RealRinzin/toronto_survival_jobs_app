@@ -21,6 +21,7 @@ class CompanySeeder extends Seeder
                 'overview' =>"overview",
                 'website' => 'https://www.adidas.ca',
                 'logo' => 'logo.png',
+                'business_category_id' => rand(1,10),
             ],
         ]);
     }

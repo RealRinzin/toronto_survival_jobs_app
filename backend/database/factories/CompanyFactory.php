@@ -123,13 +123,13 @@ class CompanyFactory extends Factory
 
         // Randomly pick one from the predefined list
         $company = $this->faker->unique()->randomElement($companies);
-
         return [
             'name' => $company['name'],
             'slug' => Str::slug($company['name']),
             'overview' => $company['overview'],
             'website' => $company['website'],
             'logo' => 'myimage.png',
+            'business_category_id' => rand(1,10)
         ];
     }
 }

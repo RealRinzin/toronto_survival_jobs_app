@@ -25,7 +25,6 @@ return new class extends Migration
             $table->boolean('active')->default(false);
             // Relationship
             $table->foreignId('business_category_id')
-                ->default(1)
                 ->constrained('business_categories')
                 ->nullOnDelete();
             $table->timestamps();

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('job_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('Sales Associate');
+            $table->string('slug');
             $table->string('color_code')->default('#fff');
             $table->timestamps();
         });

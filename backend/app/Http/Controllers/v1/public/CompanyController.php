@@ -14,7 +14,7 @@ class CompanyController extends Controller
     public function index()
     {
         //
-        return Company::active()->with('businessCategory:id,name')->paginate(2);
+        return Company::active()->with('businessCategory:id,name,slug')->paginate(2);
     }
 
     /**
