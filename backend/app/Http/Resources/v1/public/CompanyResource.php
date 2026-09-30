@@ -14,6 +14,21 @@ class CompanyResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        // return parent::toArray($request);
+        return [
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'overview' => $this->overview,
+            'website' => $this->website,
+            'brand_color' => $this->brand_color,
+            'logo' => $this->logo,
+            'company_size' => $this->company_size,
+            'founded' => $this->founded,
+            'headquaters' => $this->headquaters,
+            'active' => $this->active,
+            'business_category' => BusinessCategoryResource::make(
+                $this->whenLoaded('businessCategory')
+            )
+        ];
     }
 }

@@ -24,6 +24,6 @@ class Company extends Model
     /** Custom Query functions */
     public function scopeActive(Builder $query): void
     {
-        $query->where('active', false);
+        $query->where('active', true);
     }
 }

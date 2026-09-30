@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('logo')->default('myimage.png');
             $table->integer('company_size')->default(1);
             $table->integer('founded')->default(2000);
-            $table->string('head_quarter')->default('Canada');
+            $table->string('headerquarters')->default('Canada');
             $table->boolean('active')->default(true);
             // Relationship
             $table->foreignId('business_category_id')

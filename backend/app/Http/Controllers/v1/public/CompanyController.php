@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\public;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\v1\public\CompanyResource;
 use App\Models\Company;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,10 @@ class CompanyController extends Controller
     public function index()
     {
         //
-        return Company::active()->with('businessCategory:id,name,slug')->paginate(2);
+
+     $companies = Company::active()->with('businessCategory')->paginate
+     (5);
+     return CompanyResource::collection($companies);
     }
 
     /**
