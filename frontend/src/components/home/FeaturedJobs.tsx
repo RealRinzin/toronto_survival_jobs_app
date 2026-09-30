@@ -15,10 +15,8 @@ export default function HomeFeaturedJobs() {
       <section className="py-14" style={{ background: '#f5f7fa' }}>
         <div className="max-w-7xl mx-auto px-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-7">
-            <div>
               <h2 className="text-2xl font-bold" style={{ color: '#0d2137', fontFamily: "'Fraunces', serif" }}>Featured Jobs</h2>
-              <p className="text-sm mt-0.5" style={{ color: '#6b7c93' }}>Updated every hour · salary shown upfront</p>
-            </div>
+              <p className="text-sm mt-0.5" style={{ color: '#6b7c93',fontFamily:"'DM_Sans',serif" }}>Updated every hour · salary shown upfront</p>
             <div className="flex items-center gap-2 flex-wrap">
               {/* {JOB_TYPES.map(t => (
                 <button key={t} onClick={() => setJobType(t)}

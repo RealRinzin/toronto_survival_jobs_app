@@ -25,8 +25,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } */
 
-@theme inline {
+/* @theme inline {
   --font-sans: var(--font-dm-sans);
   --font-serif: var(--font-fraunces);
   --font-mono: var(--font-dm-mono);
+} */
+
+@theme inline {
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
 }

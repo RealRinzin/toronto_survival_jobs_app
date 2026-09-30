@@ -8,7 +8,7 @@ import PageWrapper from "@/components/layout/PageWrapper";
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  // weight: ["400", "600", "700"],
   style: ["normal", "italic"],
   // axes:["opsz"],
 });
