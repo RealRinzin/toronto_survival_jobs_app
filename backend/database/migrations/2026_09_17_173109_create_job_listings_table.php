@@ -43,7 +43,10 @@ return new class extends Migration
                 ->nullable()
                 ->constrained('job_categories')
                 ->nullOnDelete();
-                
+            $table->foreignId('business_category_id')
+                ->nullable()
+                ->constrained('business_categories')
+                ->nullOnDelete();
             $table->foreignId('area_id')
                 ->nullable()
                 ->constrained('areas')
@@ -60,11 +63,13 @@ return new class extends Migration
                 ->nullOnDelete();
 
             // Index these columns for the optimize and faster query
+            // $table->index('job_category_id');
+            $table->index('business_category_id');
             $table->index('company_id');
             $table->index('area_id');
             $table->index('city_id');
             $table->index('province_id');
-            // $table->index('employment_type_id');
+            $table->index('employment_type_id');
             // $table->index('job_role_id');
             $table->index('published');
             $table->index('posted_date');

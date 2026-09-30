@@ -55,7 +55,6 @@ class JobListingSeeder extends Seeder
                 'system_posted_date' => $now->toDateString(),
                 'created_at'  => $now,
                 'updated_at'  => $now,
-
                 'company_id'         => Arr::random($companyIds ?: [null]),
                 'employment_type_id' => Arr::random($employmentTypeIds ?: [null]),
                 'job_category_d'     => Arr::random($categoryIds ?: [null]),
