@@ -22,6 +22,9 @@ export default function Company() {
     <div style={{backgroundColor:'#000'}} className='p-2 w-fit rounded-md m-10 h-14 flex justify-center items-center'>
       <Image src="http://localhost:8001/storage/img/companies/banana_republic.svg" className='object-contain' alt='bestbuy' height={60} width={60}/>
     </div>
+    <div style={{backgroundColor:'#000'}} className='p-2 w-fit rounded-md m-10 h-14 flex justify-center items-center'>
+      <Image src="http://localhost:8001/storage/img/companies/athleta.svg" className='object-contain' alt='bestbuy' height={60} width={60}/>
+    </div>
     <div style={{backgroundColor:'#fff'}} className='p-2 w-fit rounded-md m-10 h-14 flex justify-center items-center'>
       <Image src="http://localhost:8001/storage/img/companies/chipotle.svg" className='object-contain' alt='bestbuy' height={60} width={60}/>
     </div>
