@@ -12,18 +12,53 @@ class Company extends Model
     /** @use HasFactory<\Database\Factories\CompanyFactory> */
     use HasFactory;
 
+    /* -------------------------------------------------------------
+     | Fillable fields
+     |-------------------------------------------------------------*/
+    protected $fillable = [
+        'name',
+        'overview',
+        'website',
+        'brand_color',
+        'logo',
+        'company_size',
+        'founded',
+        'headquarters',
+        'active'
+    ];
 
 
-
-
-    // RELATIONSHIP TABLES
-    public function businessCategory(){
+    /* -------------------------------------------------------------
+     | Cast protect
+     |-------------------------------------------------------------*/
+    protected function casts(): array
+    {
+        return ['active' => 'boolean'];
+    }
+    /* -------------------------------------------------------------
+     | Slug Route
+     |-------------------------------------------------------------*/
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+    /* -------------------------------------------------------------
+     | Relationships
+     |-------------------------------------------------------------*/
+    /** businessCategory */
+    public function businessCategory()
+    {
         return $this->belongsTo(BusinessCategory::class);
     }
-    public function jobListings(){
+    /** jobListings */
+    public function jobListings()
+    {
         return $this->hasMany(JobListing::class);
     }
-    /** Custom Query functions */
+
+    /* -------------------------------------------------------------
+     | Scopes
+     |-------------------------------------------------------------*/
     public function scopeActive(Builder $query): void
     {
         $query->where('active', true);
