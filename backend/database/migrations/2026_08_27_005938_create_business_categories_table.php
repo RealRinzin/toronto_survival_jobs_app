@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('business_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('Retailer');
+            $table->string('name');
+            $table->string('slug');
             $table->string('color_code')->default('#fff');
             $table->timestamps();
         });

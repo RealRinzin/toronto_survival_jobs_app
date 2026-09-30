@@ -22,9 +22,10 @@ return new class extends Migration
             $table->integer('company_size')->default(1);
             $table->integer('founded')->default(2000);
             $table->string('head_quarter')->default('Canada');
+            $table->boolean('active')->default(false);
             // Relationship
             $table->foreignId('business_category_id')
-                ->nullable()
+                ->default(1)
                 ->constrained('business_categories')
                 ->nullOnDelete();
             $table->timestamps();
