@@ -20,7 +20,9 @@ class Company extends Model
     public function businessCategory(){
         return $this->belongsTo(BusinessCategory::class);
     }
-
+    public function jobListings(){
+        return $this->hasMany(JobListing::class);
+    }
     /** Custom Query functions */
     public function scopeActive(Builder $query): void
     {

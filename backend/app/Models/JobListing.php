@@ -9,4 +9,10 @@ class JobListing extends Model
 {
     /** @use HasFactory<\Database\Factories\JobListingFactory> */
     use HasFactory;
+
+
+    // RELATIONSHIP TABLES
+    public function company(){
+        return $this->belongsTo(company::class);
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -14,15 +15,6 @@ class CompanySeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('companies')->insert([
-            [
-                'name' => 'adidas',
-                'slug' => 'adidas',
-                'overview' =>"overview",
-                'website' => 'https://www.adidas.ca',
-                'logo' => 'logo.png',
-                'business_category_id' => rand(1,10),
-            ],
-        ]);
+        Company::factory()->count(20)->create();
     }
 }

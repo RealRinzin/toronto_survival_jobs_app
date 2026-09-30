@@ -23,13 +23,13 @@ class DatabaseSeeder extends Seeder
             BusinessCategorySeeder::class,
             ProvinceSeeder::class,
             CitySeeder::class,
-            // CompanySeeder::class,
+            CompanySeeder::class,
             // ScrapePlatformSeeder::class,
             AreaSeeder::class,
             EmploymentTypeSeeder::class,
-            JobCategorySeeder::class
+            JobCategorySeeder::class,
+            JobListingSeeder::class,
         ]);
-        Company::factory(20)->create();
         ScrapePlatform::factory(20)->create();
         ScrapeCompanyJob::factory(1)->create();
     }
