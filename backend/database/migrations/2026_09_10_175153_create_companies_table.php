@@ -22,7 +22,7 @@ return new class extends Migration
             $table->integer('company_size')->default(1);
             $table->integer('founded')->default(2000);
             $table->string('head_quarter')->default('Canada');
-            $table->boolean('active')->default(false);
+            $table->boolean('active')->default(true);
             // Relationship
             $table->foreignId('business_category_id')
                 ->constrained('business_categories')

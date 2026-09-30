@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('employment_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('color_code')->default('#fff');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

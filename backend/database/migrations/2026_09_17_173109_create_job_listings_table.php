@@ -69,6 +69,7 @@ return new class extends Migration
             $table->index('published');
             $table->index('posted_date');
             $table->index('due_date');
+            $table->boolean('active')->default(true);
             $table->index(['published', 'posted_date']);
         });
     }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->default('Sales Associate');
             $table->string('slug');
             $table->string('color_code')->default('#fff');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

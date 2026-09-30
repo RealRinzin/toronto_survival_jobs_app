@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->boolean('active')->default(false);
+            // Relationship tables
             $table->foreignId('city_id')
                 ->nullable()
                 ->constrained('cities')
