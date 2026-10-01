@@ -1,4 +1,5 @@
 import React from "react";
+import JobCardSkeleton from "./JobCardSkeleton";
 type Cols = 1 | 2 | 3 | 4 | 5 | 6;
 type Gap = 1 | 2 | 3 | 4;
 
@@ -25,6 +26,7 @@ const gapClasses: Record<Gap, string> = {
 export default function JobCardGrid({ cols = 4,gap=4,children,className='' }:JobCardGridInterface) {
   return (
     <div className={`grid ${colClasses[cols]} ${gapClasses[gap]} ${className}`}>
+      <JobCardSkeleton/>
       {children}
     </div>
   );
