@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Suspense } from "react";
 import JobCard from "../job/JobCard";
 import JobCardGrid from "../job/JobCardGrid";
+import JobCardSkeleton from "../job/JobCardSkeleton";
 const JOBS = [
   {
     id: 1,
@@ -150,7 +151,11 @@ export default function HomeFeaturedJobs() {
         </div>
         <JobCardGrid cols={2} gap={4}>
           {JOBS.map((jobs: any, index: number) => {
-            return <JobCard job={jobs} key={index} />;
+            return (
+              <Suspense key={index} fallback={<JobCardSkeleton />}>
+                <JobCard job={jobs} />
+              </Suspense>
+            );
           })}
         </JobCardGrid>
         <div className="mt-8 text-center">

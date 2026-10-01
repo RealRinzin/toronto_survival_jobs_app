@@ -107,13 +107,10 @@ export default function JobCard({ job }: any) {
             </svg>
           </button>
           <button
-            className="text-xs font-bold px-4 py-2 rounded-lg text-white transition-all hover:opacity-90 active:scale-95"
-            style={{
-              background:
-                "linear-gradient(135deg, var(--primary), var(--primary-mid))",
-            }}
+            className="text-xs font-semibold px-4 py-1.5 rounded-lg text-white transition-all hover:opacity-90 active:scale-95"
+            style={{ background: 'linear-gradient(135deg, #0d2137, #1a3f5c)' }}
           >
-            View Job
+            Apply Now
           </button>
         </div>
       </div>

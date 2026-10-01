@@ -18,7 +18,7 @@ Route::prefix('v1')->group(function () {
     Route::group(['v1'], function () {
         Route::prefix('public')
         ->name('public.')
-            // ->middleware(['auth:sanctum', 'admin'])
+            // ->middleware(['auth:sanctum'])
             ->group(function () {
                 foreach (glob(base_path('routes/api/v1/public/*.php')) as $route) {
                     require $route;

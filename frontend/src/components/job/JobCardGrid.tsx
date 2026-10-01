@@ -26,7 +26,6 @@ const gapClasses: Record<Gap, string> = {
 export default function JobCardGrid({ cols = 4,gap=4,children,className='' }:JobCardGridInterface) {
   return (
     <div className={`grid ${colClasses[cols]} ${gapClasses[gap]} ${className}`}>
-      <JobCardSkeleton/>
       {children}
     </div>
   );
