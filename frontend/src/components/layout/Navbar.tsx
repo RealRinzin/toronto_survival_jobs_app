@@ -10,14 +10,14 @@ const NavLinks = [
 ];
 export default function Navigation() {
   return (
-    <header className="flex  sticky justify-between items-center max-w-7xl mx-auto w-full p-2 sm:px-4 lg:px-2">
+    <header className="flex sticky justify-between items-center max-w-7xl mx-auto w-full p-2 sm:px-4 lg:px-2">
       <Link href="/" className="font-medium">
         TorontSurvivalJobs
         <span className="text-yellow-600 font-extrabold text-3xl">.</span>ca
       </Link>
       <MobileMenu />
       <nav className="md:flex hidden gap-3 ">
-        <ul className="flex gap-4 text-gray-500 text-xs font-bold">
+        <ul className="flex gap-4 text-gray-500 font-medium">
           {NavLinks.map((menu: any, index: number) => {
             return (
               <li
@@ -31,7 +31,7 @@ export default function Navigation() {
         </ul>
       </nav>
       <ul className="md:flex hidden">
-        <li className="border border-gray-200  rounded-xl px-3 py-2 text-xs font-medium">
+        <li className="border border-gray-200  rounded-xl px-3 py-2 t font-medium">
           <Link href="/login"> Sign In </Link>
         </li>
       </ul>
