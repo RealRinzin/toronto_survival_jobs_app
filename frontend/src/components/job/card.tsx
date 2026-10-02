@@ -5,7 +5,7 @@ function delay(ms: number) {
 }
 
 export default async function Card({ data }: any) {
-  await delay(4000);
+  // await delay(4000);
 
   return (
     <div className="py-10">
