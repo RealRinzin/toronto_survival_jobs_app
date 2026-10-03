@@ -38,7 +38,7 @@ export default async function HomeHiringticker() {
           width: "max-content",
         }}
       >
-        {[...TICKER_LOGOS, ...TICKER_LOGOS].map((item, i) => (
+        {/* {[...TICKER_LOGOS, ...TICKER_LOGOS].map((item, i) => (
           <div key={i} className="flex items-center gap-3 px-7 shrink-0">
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold"
@@ -61,8 +61,8 @@ export default async function HomeHiringticker() {
           animation: "ticker 28s linear infinite",
           width: "max-content",
         }}
-      >
-        {[...companies.data, ...companies.data].map((item, i) => (
+      > */}
+        {companies.data.map((item:any, i:number) => (
           <div key={i} className="flex items-center gap-3 px-7 shrink-0">
             <div
               style={{ backgroundColor:  `${item.brand_color}`}}
