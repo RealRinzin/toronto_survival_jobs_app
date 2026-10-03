@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const TICKER_LOGOS = [
   { logo: "AM", color: "#FF9900", name: "Amazon" },
@@ -38,50 +39,30 @@ export default async function HomeHiringticker() {
           width: "max-content",
         }}
       >
-        {/* {[...TICKER_LOGOS, ...TICKER_LOGOS].map((item, i) => (
+        {companies.data.map((item: any, i: number) => (
           <div key={i} className="flex items-center gap-3 px-7 shrink-0">
             <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-xs font-bold"
-              style={{ background: item.color + "14", color: item.color }}
-            >
-              {item.logo}
-            </div>
-            <span
-              className="text-sm font-semibold whitespace-nowrap"
-              style={{ color: "#4a6380" }}
-            >
-              {item.name}
-            </span>
-          </div>
-        ))}
-      </div>
-      <div
-        className="flex items-center py-5 gap-0"
-        style={{
-          animation: "ticker 28s linear infinite",
-          width: "max-content",
-        }}
-      > */}
-        {companies.data.map((item:any, i:number) => (
-          <div key={i} className="flex items-center gap-3 px-7 shrink-0">
-            <div
-              style={{ backgroundColor:  `${item.brand_color}`}}
+              style={{ backgroundColor: `${item.brand_color}` }}
               className="p-2 w-fit rounded flex justify-center items-center"
             >
-              <Image
-                src={`http://localhost:8001/storage/img/companies/${item.logo}`}
-                className="object-contain"
-                alt="bestbuy"
-                height={14}
-                width={14}
-              />
+              <Link href={`/companies/${item.slug}`}>
+                <Image
+                  src={`http://localhost:8001/storage/img/companies/${item.logo}`}
+                  className="object-contain"
+                  alt="bestbuy"
+                  height={14}
+                  width={14}
+                />
+              </Link>
             </div>
-            <span
-              className="text-sm font-semibold whitespace-nowrap"
-              style={{ color: "#4a6380" }}
-            >
-              {item.name}
-            </span>
+            <Link href={`/companies/${item.slug}`}>
+              <span
+                className="text-sm font-semibold whitespace-nowrap"
+                style={{ color: "#4a6380" }}
+              >
+                {item.name}
+              </span>
+            </Link>
           </div>
         ))}
       </div>
