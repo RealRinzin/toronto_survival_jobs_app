@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('location')->nullable();
             $table->char('country', 2)->default('CA');
             $table->decimal('salary', 10, 2)->nullable();
-            $table->boolean('published')->boolean(false);
+            $table->boolean('published')->default(false);
             // Offical application url
             $table->text('apply_url');
             $table->date('posted_date')->nullable();
@@ -39,7 +39,7 @@ return new class extends Migration
                 ->constrained('employment_types')
                 ->nullOnDelete();
 
-            $table->foreignId('job_category_d')
+            $table->foreignId('job_category_id')
                 ->nullable()
                 ->constrained('job_categories')
                 ->nullOnDelete();
