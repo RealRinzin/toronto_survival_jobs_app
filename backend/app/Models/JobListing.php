@@ -26,19 +26,31 @@ class JobListing extends Model
     {
         return 'slug';
     }
+
     /* -------------------------------------------------------------
      | Relationships
      |-------------------------------------------------------------*/
     //  Companies
     public function company()
     {
-        return $this->belongsTo(company::class);
+        return $this->belongsTo(Company::class);
     }
     // Categories
     public function jobCategory(){
         return $this->belongsTo(JobCategory::class);
     }
-
+    // Employment Type
+    public function employmentType(){
+        return $this->belongsTo(EmploymentType::class);
+    }
+    // Province
+    public function province(){
+        return $this->belongsTo(Province::class);
+    }
+    // City
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
     /* -------------------------------------------------------------
      | Scopes
      |-------------------------------------------------------------*/

@@ -57,11 +57,10 @@ class JobListingSeeder extends Seeder
                 'updated_at'  => $now,
                 'company_id'         => Arr::random($companyIds ?: [null]),
                 'employment_type_id' => Arr::random($employmentTypeIds ?: [null]),
-                'job_category_d'     => Arr::random($categoryIds ?: [null]),
+                'job_category_id'     => Arr::random($categoryIds ?: [null]),
                 'area_id'            => Arr::random($areaIds ?: [null]),
                 'city_id'            => Arr::random($cityIds ?: [null]),
                 'province_id'        => Arr::random($provinceIds ?: [null]),
-
                 'active'      => true,
             ];
         }

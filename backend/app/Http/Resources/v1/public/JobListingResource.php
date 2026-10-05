@@ -14,7 +14,7 @@ class JobListingResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        // return parent::toArray($request);
         return [
             'id' => $this->id,
             'title' => $this->title,
@@ -33,10 +33,11 @@ class JobListingResource extends JsonResource
             /* -------------------------------------------------------------
      | Relationships - Load
      |-------------------------------------------------------------*/
-            'company' => CompanyResource::make(
-                $this->whenLoaded('company')
-            ),
-
+            'employmentType' => EmploymentTypeResource::make($this->whenLoaded('employmentType')),
+            'jobCategory' => JobCategoryResource::make($this->whenLoaded('jobCategory')),
+            'company' => CompanyResource::make($this->whenLoaded('company')),
+            'province' => ProvinceResource::make($this->whenLoaded('province')),
+            'city' => CityResource::make($this->whenLoaded('city')),
         ];
     }
 }

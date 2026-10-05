@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\v1\public;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\v1\public\JobListingResource;
+use App\Models\JobListing;
 use Illuminate\Http\Request;
 
 class JobListingController extends Controller
@@ -13,6 +15,9 @@ class JobListingController extends Controller
     public function index()
     {
         //
+        $jobs = JobListing::active()->with(['company','jobCategory','employmentType','province','city'])->cursorPaginate(3);
+        return JobListingResource::collection($jobs);
+
     }
 
     /**

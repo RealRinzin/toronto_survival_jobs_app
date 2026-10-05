@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('job_listings', function (Blueprint $table) {
             $table->id();
-            $table->text('title');
+            $table->string('title');
             $table->string('slug')->unique();
             $table->longText('description');
-            $table->text('address')->nullable();
-            $table->text('location')->nullable();
+            $table->string('address')->nullable();
+            $table->string('location')->nullable();
             $table->char('country', 2)->default('CA');
             $table->decimal('salary', 10, 2)->nullable();
             $table->boolean('published')->default(false);
             // Offical application url
-            $table->text('apply_url');
+            $table->string('apply_url');
             $table->date('posted_date')->nullable();
             $table->date('due_date')->nullable();
             $table->date('system_posted_date')
