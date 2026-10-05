@@ -51,6 +51,10 @@ class JobListing extends Model
     public function city(){
         return $this->belongsTo(City::class);
     }
+    // Tags
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
     /* -------------------------------------------------------------
      | Scopes
      |-------------------------------------------------------------*/
