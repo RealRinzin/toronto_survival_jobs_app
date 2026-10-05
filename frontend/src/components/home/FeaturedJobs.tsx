@@ -124,7 +124,12 @@ const JOB_TYPES = [
   "Temporary",
 ];
 
-export default function HomeFeaturedJobs() {
+
+export default async function HomeFeaturedJobs() {
+  const res = await fetch(`${process.env.API_URL}/companies`)
+  if(!res.ok) return <p>Something went wrong.. reload</p>
+  const com = await res.json()
+  console.log(com)
   return (
     <section className="py-14 bg-muted">
       <div className="max-w-7xl mx-auto px-5">

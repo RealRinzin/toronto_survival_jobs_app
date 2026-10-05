@@ -16,7 +16,7 @@ class CompanyController extends Controller
     {
         //
 
-     $companies = Company::active()->with(['businessCategory','jobListings'])->paginate
+     $companies = Company::active()->with(['businessCategory','jobListings'])->cursorPaginate
      (10);
      return CompanyResource::collection($companies);
     }

@@ -61,7 +61,7 @@ export default function JobCard({ job }: any) {
         <span className="text-xs text-light-foreground">{job.posted}</span>
       </div>
       <div className="flex flex-wrap gap-1.5 pl-1">
-        {job.tags.map((tag) => (
+        {job.tags.map((tag:any ) => (
           <span
             key={tag}
             className="text-xs px-2.5 py-1 rounded-lg font-medium"
