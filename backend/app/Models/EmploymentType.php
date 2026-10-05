@@ -10,7 +10,11 @@ class EmploymentType extends Model
 {
     /** @use HasFactory<\Database\Factories\EmploymentTypeFactory> */
     use HasFactory;
-
+    /* -------------------------------------------------------------
+     | Hide Field
+     |-------------------------------------------------------------*/
+    protected $hidden = ['created_at', 'updated_at'];
+    
     /* -------------------------------------------------------------
      | Cast protect
      |-------------------------------------------------------------*/

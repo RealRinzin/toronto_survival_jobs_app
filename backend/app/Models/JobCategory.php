@@ -11,7 +11,10 @@ class JobCategory extends Model
     /** @use HasFactory<\Database\Factories\JobCategoryFactory> */
     use HasFactory;
 
-
+    /* -------------------------------------------------------------
+     | Hide Field
+     |-------------------------------------------------------------*/
+    protected $hidden = ['created_at', 'updated_at'];
     /* -------------------------------------------------------------
      | Cast protect
      |-------------------------------------------------------------*/
