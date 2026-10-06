@@ -3,4 +3,4 @@
 use App\Http\Controllers\v1\public\JobCategoryController;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('/job_categories', JobCategoryController::class);
+Route::apiResource('/job_categories', JobCategoryController::class)->only(['index','show']);
