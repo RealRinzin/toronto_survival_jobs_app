@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\public;
 
 use App\Http\Controllers\Controller;
+use App\Models\JobCategory;
 use Illuminate\Http\Request;
 
 class JobCategoryController extends Controller
@@ -13,6 +14,7 @@ class JobCategoryController extends Controller
     public function index()
     {
         //
+        return JobCategory::with('jobListings')->get();
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\public;
 
 use App\Http\Controllers\Controller;
+use App\Models\BusinessCategory;
 use Illuminate\Http\Request;
 
 class BusinessCategoryController extends Controller
@@ -13,15 +14,9 @@ class BusinessCategoryController extends Controller
     public function index()
     {
         //
+        return BusinessCategory::with('companies')->get();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -31,19 +26,4 @@ class BusinessCategoryController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
