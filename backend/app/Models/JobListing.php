@@ -51,6 +51,9 @@ class JobListing extends Model
     public function city(){
         return $this->belongsTo(City::class);
     }
+        public function area(){
+        return $this->belongsTo(Area::class);
+    }
     // Tags
     public function tags(){
         return $this->belongsToMany(Tag::class);

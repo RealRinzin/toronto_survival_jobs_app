@@ -15,7 +15,7 @@ class JobListingController extends Controller
     public function index()
     {
         //
-        $jobs = JobListing::active()->with(['company','jobCategory','employmentType','province','city','tags'])->cursorPaginate(10);
+        $jobs = JobListing::active()->with(['company','jobCategory','employmentType','province','city','area','tags'])->cursorPaginate(10);
         return JobListingResource::collection($jobs);
 
     }

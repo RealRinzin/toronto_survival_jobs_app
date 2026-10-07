@@ -38,7 +38,8 @@ class JobListingResource extends JsonResource
             'company' => CompanyResource::make($this->whenLoaded('company')),
             'province' => ProvinceResource::make($this->whenLoaded('province')),
             'city' => CityResource::make($this->whenLoaded('city')),
-            'tags' => TagResource::make($this->whenLoaded('tags')),
+            'area' => AreaResource::make($this->whenLoaded('area')),
+            'tags' => TagResource::collection($this->whenLoaded('tags')),
         ];
     }
 }

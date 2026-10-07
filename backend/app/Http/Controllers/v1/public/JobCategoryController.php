@@ -15,12 +15,8 @@ class JobCategoryController extends Controller
     public function index()
     {
         // Getting the 
-        $jobCategories = JobCategory::withCount([
-            'jobListings' => fn($query) => $query->where('active', true),
-        ])->get();
-        return JobCategoryResource::collection($jobCategories);
     }
-
+ 
     /**
      * Display the specified resource.
      */
