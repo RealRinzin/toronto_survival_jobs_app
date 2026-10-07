@@ -1,19 +1,8 @@
 import Link from "next/link";
 import PageWrapper from "../layout/PageWrapper";
-
-// const CATEGORIES = [
-//   { label: "Food & Hospitality", icon: "FH", count: 842, color: "#b85f15" },
-//   { label: "Warehousing", icon: "WH", count: 619, color: "#d4821a" },
-//   { label: "Retail", icon: "RT", count: 503, color: "#1e4976" },
-//   { label: "Transportation", icon: "TR", count: 381, color: "#b85f15" },
-//   { label: "Customer Service", icon: "CS", count: 274, color: "#1e4976" },
-//   { label: "Construction", icon: "CN", count: 196, color: "#0d2137" },
-// ];
-
 export default async function HomeCategoryGrid() {
   const res = await fetch(`${process.env.API_URL}/job_categories/meta_data`)
-
-  if(!res.ok) return <p>Something went wrong, reload again.</p>
+  if(!res.ok) return <p className="text-red-500 text-xs">Something went wrong, reload again.</p>
   const categories = await res.json()
   console.log(categories)
   return (
@@ -24,7 +13,9 @@ export default async function HomeCategoryGrid() {
             className="text-2xl font-bold"
             style={{ color: "#0d2137", fontFamily: "'Fraunces', serif" }}
           >
+            <Link href='/categories'>
             Browse by Category
+            </Link>
           </h2>
           <p className="text-sm mt-0.5" style={{ color: "#6b7c93" }}>
             What kind of work are you looking for?
@@ -32,7 +23,6 @@ export default async function HomeCategoryGrid() {
         </div>
         <Link
           href="/categories"
-          // onClick={() => setPage('search')}
           className="hidden sm:block text-sm font-semibold px-4 py-2 rounded-lg border transition-all hover:bg-gray-50"
           style={{ color: "#d4821a", borderColor: "#fcd5a0" }}
         >
@@ -40,10 +30,6 @@ export default async function HomeCategoryGrid() {
         </Link>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        {/* {categories.data.map((cat:JobCategoriesDType)=>(
-          <p key={cat.name}>{cat.name}</p>
-        ))} */}
-
         {categories?.data.slice(0, 6).map((cat:JobCategoriesDType) => (
           <button
             key={cat.slug}
