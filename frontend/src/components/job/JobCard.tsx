@@ -73,12 +73,11 @@ export default function JobCard({ job }: { job: JobsDType }) {
       </div>
       <div className="flex flex-wrap gap-1.5 pl-1">
         {job?.tags?.map((tag) => (
-          <span
-            key={tag.id}
-            className="text-xs px-2.5 py-1 rounded-lg font-medium bg-slate-200 text-slate-500"
-          >
-            {tag.name}
-          </span>
+          <Link key={tag.id} href={`/categories/${tag.slug}`}>
+            <span className="text-xs px-2.5 py-1 rounded-lg font-medium bg-slate-200 text-slate-500">
+              {tag.name}
+            </span>
+          </Link>
         ))}
       </div>
       <div className="flex items-center justify-between pt-3 border-t border-border pl-1">
@@ -90,19 +89,12 @@ export default function JobCard({ job }: { job: JobsDType }) {
         </span>
         <div className="flex items-center gap-2">
           <button
-            // onClick={e => { e.stopPropagation(); onSave() }}
             className="w-8 h-8 rounded-lg flex items-center justify-center border transition-all hover:border-amber-400"
-            // style={{
-            //   borderColor: saved ? "var(--accent)" : "var(--border)",
-            //   background: saved ? "var(--accent-tint)" : "#fff",
-            //   color: saved ? "var(--accent)" : "var(--light-foreground)",
-            // }}
             aria-label="Save job"
           >
             <svg
               className="w-4 h-4"
               viewBox="0 0 24 24"
-              // fill={saved ? "currentColor" : "none"}
               stroke="currentColor"
               strokeWidth={2}
             >
