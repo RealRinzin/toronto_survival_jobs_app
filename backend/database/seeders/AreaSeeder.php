@@ -15,14 +15,10 @@ class AreaSeeder extends Seeder
         // city slug => [[name, latitude, longitude], ...]
         $neighborhoods = [
             'toronto' => [
-                ['Yorkville', 43.6709, -79.3928],
-                ['The Annex', 43.6690, -79.4043],
-                ['Kensington Market', 43.6547, -79.4009],
-                ['Distillery District', 43.6503, -79.3596],
-                ['Liberty Village', 43.6383, -79.4207],
-                ['The Beaches', 43.6710, -79.2960],
-                ['Leslieville', 43.6624, -79.3305],
+                ['Etobicoke', 43.6536, -79.5413],
                 ['North York', 43.7615, -79.4111],
+                ['Scarborough', 43.7764, -79.2318],
+                ['Toronto',51.0447, -114.0719,],
             ],
             'vancouver' => [
                 ['Gastown', 49.2837, -123.1088],
@@ -65,7 +61,7 @@ class AreaSeeder extends Seeder
                 $rows[] = [
                     'name' => $name,
                     'slug' => Str::slug($name),
-                    'overview' =>'OverView',
+                    'overview' => 'OverView',
                     'latitude' => $lat,
                     'longitude' => $lng,
                     'city_id' => $cityIds[$citySlug] ?? null,

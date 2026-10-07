@@ -582,7 +582,7 @@ class CitySeeder extends Seeder
                 'overview' => 'Toronto is the capital of Ontario and the largest city in Canada, with major technology, finance, healthcare, education, and business sectors.',
                 'latitude' => 43.6532,
                 'longitude' => -79.3832,
-                'active' => false,
+                'active' => true,
                 'province_id' => 9,
             ],
             [
@@ -609,7 +609,7 @@ class CitySeeder extends Seeder
                 'overview' => 'Brampton is a major city in the Greater Toronto Area with growing technology, logistics, manufacturing, and business sectors.',
                 'latitude' => 43.7315,
                 'longitude' => -79.7624,
-                'active' => false,
+                'active' => true,
                 'province_id' => 9,
             ],
             [
