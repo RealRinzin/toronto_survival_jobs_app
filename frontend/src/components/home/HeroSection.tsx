@@ -1,6 +1,8 @@
 import React from "react";
 
-export default function HomeHeroSection() {
+export default async function HomeHeroSection() {
+  const res = await fetch(`${process.env.API_URL}/cities`)
+  const cities = await res.json()
   return (
     <section className="relative overflow-hidden" style={{ minHeight: 560 }}>
       <img
@@ -120,9 +122,9 @@ export default function HomeHeroSection() {
               className="text-sm outline-none bg-transparent py-2.5 pr-1 cursor-pointer"
               // style={{ color: area === "All Areas" ? "#6b7c93" : "#0f1923" }}
             >
-              {/* {AREAS.map((a) => (
-                <option key={a}>{a}</option>
-              ))} */}
+              {cities.map((city:any,index:number) => (
+                <option key={index}>{city.name}</option>
+              ))}
             </select>
           </div>
           <button
