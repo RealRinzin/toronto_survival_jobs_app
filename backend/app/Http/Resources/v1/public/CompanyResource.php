@@ -16,7 +16,7 @@ class CompanyResource extends JsonResource
     {
         // return parent::toArray($request);
         return [
-            'id' => $this->id,
+            // 'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
             'overview' => $this->overview,
@@ -32,7 +32,7 @@ class CompanyResource extends JsonResource
             'business_category' => BusinessCategoryResource::make(
                 $this->whenLoaded('businessCategory')
             ),
-            'jobs' => JobListingResource::make(
+            'jobs' => JobListingResource::collection(
                 $this->whenLoaded('jobListings')
             ),
         ];

@@ -126,17 +126,18 @@ const JOB_TYPES = [
 
 
 export default async function HomeFeaturedJobs() {
-  const res = await fetch(`${process.env.API_URL}/companies`)
+  const res = await fetch(`${process.env.API_URL}/jobs`)
   if(!res.ok) return <p>Something went wrong.. reload</p>
-  const com = await res.json()
-  console.log(com)
+  const jobs = await res.json()
+
+
   return (
     <section className="py-14 bg-muted">
       <div className="max-w-7xl mx-auto px-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-7">
           <div>
             <h2 className="text-2xl font-bold text-primary font-display">
-              Featured Job
+              Latest Job
             </h2>
             <p className="text-sm mt-0.5 text-muted-foreground">
               Updated every hour · salary shown upfront
