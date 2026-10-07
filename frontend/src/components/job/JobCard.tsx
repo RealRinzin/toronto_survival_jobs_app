@@ -1,26 +1,37 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-export default function JobCard({ job }: any) {
+export default function JobCard({ job }: { job: JobsDType }) {
   return (
     <div className="group bg-white rounded-2xl border border-border p-5 flex flex-col gap-4 transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer relative overflow-hidden">
       <div className="flex items-start gap-3 pl-1">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 shadow-sm"
+          className="w-12 h-12 rounded-xl p-1 flex items-center justify-center text-sm font-bold shrink-0 shadow-sm"
           style={{
-            background: job.logoColor + "18",
-            color: job.logoColor,
-            border: `1.5px solid ${job.logoColor}28`,
+            background: job.company.brand_color,
+            border: `1.5px solid ${job.company.brand_color} 28`,
           }}
         >
-          {job.logo}
+          <Link href={`/jobs/${job.slug}`}>
+            <Image
+              src={`${process.env.API_URL_STORAGE}/${job?.company?.logo}`}
+              alt="Compny"
+              width={100}
+              height={100}
+            />
+          </Link>
         </div>
+
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0">
               <h3 className="font-bold text-base leading-tight truncate transition-colors group-hover:text-blue-900 text-foreground">
-                {job.title}
+                <Link href={`/jobs/${job.slug}`}>{job.title}</Link>
               </h3>
-              <p className="text-sm text-muted-foreground">{job.company}</p>
+              <p className="text-sm text-muted-foreground font-bold">
+                {job.company.name}
+              </p>
             </div>
           </div>
         </div>
@@ -56,21 +67,17 @@ export default function JobCard({ job }: any) {
               d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          {job.type}
+          {job?.employmentType?.name}
         </span>
-        <span className="text-xs text-light-foreground">{job.posted}</span>
+        <span className="text-xs text-light-foreground">{job.posted_date}</span>
       </div>
       <div className="flex flex-wrap gap-1.5 pl-1">
-        {job.tags.map((tag:any ) => (
+        {job?.tags?.map((tag) => (
           <span
-            key={tag}
-            className="text-xs px-2.5 py-1 rounded-lg font-medium"
-            style={{
-              background: "var(--border)",
-              color: "var(--mid-foreground)",
-            }}
+            key={tag.id}
+            className="text-xs px-2.5 py-1 rounded-lg font-medium bg-slate-200 text-slate-500"
           >
-            {tag}
+            {tag.name}
           </span>
         ))}
       </div>
@@ -106,12 +113,13 @@ export default function JobCard({ job }: any) {
               />
             </svg>
           </button>
-          <button
+          <Link
             className="text-xs font-semibold px-4 py-1.5 rounded-lg text-white transition-all hover:opacity-90 active:scale-95"
-            style={{ background: 'linear-gradient(135deg, #0d2137, #1a3f5c)' }}
+            style={{ background: "linear-gradient(135deg, #0d2137, #1a3f5c)" }}
+            href={`/jobs/${job.slug}`}
           >
-            Apply Now
-          </button>
+            Read Detail
+          </Link>
         </div>
       </div>
     </div>

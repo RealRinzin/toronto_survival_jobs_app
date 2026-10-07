@@ -156,7 +156,7 @@ export default async function HomeFeaturedJobs() {
           </div>
         </div>
         <JobCardGrid cols={2} gap={4}>
-          {JOBS.map((jobs: any, index: number) => {
+          {jobs.data.map((jobs: JobsDType, index: number) => {
             return (
               <Suspense key={index} fallback={<JobCardSkeleton />}>
                 <JobCard job={jobs} />

@@ -20,16 +20,26 @@ class JobListingSeeder extends Seeder
         $provinceIds       = DB::table('provinces')->pluck('id')->all();
 
         $titles = [
-            'Senior Laravel Developer',
-            'React Frontend Engineer',
-            'Full Stack Developer',
-            'Next.js Developer',
-            'Backend PHP Engineer',
-            'DevOps Engineer',
-            'QA Automation Analyst',
-            'Product Designer',
-            'Data Analyst',
-            'Software Engineering Intern',
+            'Retail Sales Associate',
+            'Customer Service Representative',
+            'Supermarket Cashier',
+            'Stock Clerk / Merchandiser',
+            'Call Center Agent',
+            'Starbucks Barista',
+            'Restaurant Server',
+            'Event Bartender',
+            'Restaurant Line Cook',
+            'Kitchen Dishwasher',
+            'Warehouse Associate',
+            'E-Commerce Delivery Driver',
+            'Fulfillment Specialist',
+            'Package Handler',
+            'Rideshare Driver',
+            'Data Entry Clerk',
+            'Office Assistant',
+            'Virtual Assistant',
+            'Commercial Building Janitor',
+            'Construction General Laborer',
         ];
 
         $now = now();

@@ -80,7 +80,7 @@ class CompanyFactory extends Factory
                 'name' => 'ProCall Customer Support',
                 'overview' => 'Work-from-home inbound customer care and tech support roles with paid training provided.',
                 'website' => 'https://procallsupport.example.com',
-                'logo' => 'https://procallsupport.example.com',
+                'logo' => 'chipotle.svg',
                 'brand_color' => "#005568"
 
             ],
@@ -88,7 +88,7 @@ class CompanyFactory extends Factory
                 'name' => 'SunRays Hospitality & Catering',
                 'overview' => 'Event staffing agency recruiting servers, dishwashers, and banquet prep assistants for weekend shifts.',
                 'website' => 'https://sunrayscatering.example.com',
-                'logo' => 'https://sunrayscatering.example.com',
+                'logo' => 'tim_hortons.svg',
                 'brand_color' => "#005568"
             ],
             [
@@ -121,7 +121,7 @@ class CompanyFactory extends Factory
                 'name' => 'FreshMarket Superstores',
                 'overview' => 'Regional grocery chain providing immediate openings for inventory clerks and deli staff.',
                 'website' => 'https://freshmarkets.example.com',
-                'logo' => 'https://ecoshineautowash.example.com',
+                'logo' => 'adidas.svg',
 
                 'brand_color' => "#005568"
 
@@ -138,7 +138,7 @@ class CompanyFactory extends Factory
                 'name' => 'NightOwl Hotel Operations',
                 'overview' => 'Boutique hotel chain offering front-desk, housekeeping, and night audit shifts.',
                 'website' => 'https://nightowlhotels.example.com',
-                'logo' => 'https://ecoshineautowash.example.com',
+                'logo' => 'adidas.svg',
 
                 'brand_color' => "#005568"
 
@@ -147,7 +147,7 @@ class CompanyFactory extends Factory
                 'name' => 'BuildCore Construction Helpers',
                 'overview' => 'Temporary staffing for general construction site cleanup, material handling, and basic site prep.',
                 'website' => 'https://buildcorehelpers.example.com',
-                'logo' => 'https://ecoshineautowash.example.com',
+                'logo' => 'adidas.svg',
 
                 'brand_color' => "#005568"
 
@@ -156,7 +156,7 @@ class CompanyFactory extends Factory
                 'name' => 'Precision Assembly Line',
                 'overview' => 'Light industrial manufacturing hiring packaging operators and quality control assistants.',
                 'website' => 'https://precisionassembly.example.com',
-                'logo' => 'https://ecoshineautowash.example.com',
+                'logo' => 'adidas.svg',
 
                 'brand_color' => "#005568"
 
@@ -164,24 +164,24 @@ class CompanyFactory extends Factory
             [
                 'name' => 'EcoShine Auto Wash',
                 'overview' => 'Car wash facilities offering immediate entry-level attendant and detailer roles.',
-                'website' => 'https://ecoshineautowash.example.com',
-                'logo' => 'https://ecoshineautowash.example.com',
+                'website' => 'adidas.svg',
+                'logo' => 'adidas.svg',
                 'brand_color' => "#005568"
 
             ],
             [
                 'name' => 'FastTrack Fulfillment',
                 'overview' => 'E-commerce fulfillment centers hiring seasonal packers and shipping processors.',
-                'website' => 'https://fasttrackfulfillment.example.com',
-                'logo' => 'https://fasttrackfulfillment.example.com',
+                'website' => 'nike.svg',
+                'logo' => 'nike.svg',
                 'brand_color' => "#005568"
 
             ],
             [
                 'name' => 'ParkQuick Valet & Parking',
                 'overview' => 'Commercial parking lot management seeking valet drivers and booth attendants.',
-                'website' => 'https://parkquick.example.com',
-                'logo' => 'https://parkquick.example.com',
+                'website' => 'nike.svg',
+                'logo' => 'nike.svg',
                 'brand_color' => "#005568"
 
             ],
