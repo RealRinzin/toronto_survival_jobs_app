@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\public;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\v1\public\JobCategoryResource;
 use App\Models\JobCategory;
 use Illuminate\Http\Request;
 
@@ -13,16 +14,11 @@ class JobCategoryController extends Controller
      */
     public function index()
     {
-        //
-        return JobCategory::with('jobListings')->get();
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        // Getting the 
+        $jobCategories = JobCategory::withCount([
+            'jobListings' => fn($query) => $query->where('active', true),
+        ])->get();
+        return JobCategoryResource::collection($jobCategories);
     }
 
     /**
@@ -31,21 +27,17 @@ class JobCategoryController extends Controller
     public function show(string $id)
     {
         //
+        return $id;
     }
 
     /**
-     * Update the specified resource in storage.
+     *  Meta data for the job categories
      */
-    public function update(Request $request, string $id)
+    public function meta_data()
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $jobCategories = JobCategory::withCount([
+            'jobListings' => fn($query) => $query->where('active', true),
+        ])->get();
+        return JobCategoryResource::collection($jobCategories);
     }
 }

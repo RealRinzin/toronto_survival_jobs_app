@@ -14,6 +14,14 @@ class JobCategoryResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        // return parent::toArray($request);
+        return [
+            'id'=>$this->id,
+            'name'=>$this->name,
+            'slug' => $this->slug,
+            'color_code'=>$this->color_code,
+            'active'=>$this->active,
+            'job_listings_count' => $this->whenCounted('jobListings'),
+        ];
     }
 }

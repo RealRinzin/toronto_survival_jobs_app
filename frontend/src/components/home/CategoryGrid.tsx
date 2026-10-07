@@ -1,16 +1,21 @@
 import Link from "next/link";
 import PageWrapper from "../layout/PageWrapper";
 
-const CATEGORIES = [
-  { label: "Food & Hospitality", icon: "FH", count: 842, color: "#b85f15" },
-  { label: "Warehousing", icon: "WH", count: 619, color: "#d4821a" },
-  { label: "Retail", icon: "RT", count: 503, color: "#1e4976" },
-  { label: "Transportation", icon: "TR", count: 381, color: "#b85f15" },
-  { label: "Customer Service", icon: "CS", count: 274, color: "#1e4976" },
-  { label: "Construction", icon: "CN", count: 196, color: "#0d2137" },
-];
+// const CATEGORIES = [
+//   { label: "Food & Hospitality", icon: "FH", count: 842, color: "#b85f15" },
+//   { label: "Warehousing", icon: "WH", count: 619, color: "#d4821a" },
+//   { label: "Retail", icon: "RT", count: 503, color: "#1e4976" },
+//   { label: "Transportation", icon: "TR", count: 381, color: "#b85f15" },
+//   { label: "Customer Service", icon: "CS", count: 274, color: "#1e4976" },
+//   { label: "Construction", icon: "CN", count: 196, color: "#0d2137" },
+// ];
 
-export default function HomeCategoryGrid() {
+export default async function HomeCategoryGrid() {
+  const res = await fetch(`${process.env.API_URL}/job_categories/meta_data`)
+
+  if(!res.ok) return <p>Something went wrong, reload again.</p>
+  const categories = await res.json()
+  console.log(categories)
   return (
     <PageWrapper>
       <div className="flex items-center justify-between mb-7">
@@ -35,31 +40,29 @@ export default function HomeCategoryGrid() {
         </Link>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        {CATEGORIES.map((cat) => (
+        {/* {categories.data.map((cat:JobCategoriesDType)=>(
+          <p key={cat.name}>{cat.name}</p>
+        ))} */}
+
+        {categories?.data.slice(0, 6).map((cat:JobCategoriesDType) => (
           <button
-            key={cat.label}
-            // onClick={() => setPage('search')}
+            key={cat.slug}
             className="flex flex-col items-center gap-3 p-5 rounded-2xl border text-center transition-all hover:-translate-y-1 hover:shadow-md group"
             style={{ background: "#fff", borderColor: "#e2e8f0" }}
           >
-            <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-xs font-bold tracking-wider transition-transform group-hover:scale-110"
-              style={{ background: cat.color + "15", color: cat.color }}
-            >
-              {cat.icon}
-            </div>
             <div>
               <div
-                className="text-xs font-bold leading-tight"
-                style={{ color: "#0d2137" }}
+                className="text-sm font-bold leading-tight text-gray-700"
               >
-                {cat.label}
+                {cat.name}
               </div>
               <div
-                className="text-xs mt-0.5 font-medium"
-                style={{ color: cat.color }}
+                className="text-xs mt-0.5 font-bold"
+                style={{ color: cat.color_code }}
               >
-                {cat.count.toLocaleString()} jobs
+                <Link href={`/categories/${cat.slug}`}>
+                {cat.job_listings_count} jobs
+                </Link>
               </div>
             </div>
           </button>

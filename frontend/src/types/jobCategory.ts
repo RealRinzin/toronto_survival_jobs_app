@@ -3,5 +3,6 @@ interface JobCategoriesDType {
     name: string,
     slug: string,
     color_code: string,
-    active: boolean
+    active: boolean,
+    job_listings_count?:number
 }
