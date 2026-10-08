@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Categories() {
+export default function CategoryPage() {
   return (
     <div>Categories</div>
   )
