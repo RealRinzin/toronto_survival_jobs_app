@@ -34,7 +34,9 @@ class Province extends Model
     /* -------------------------------------------------------------
      | Relationships
      |-------------------------------------------------------------*/
-
+     public function cities(){
+        return $this->hasMany(City::class);
+     }
     public function jobListings()
     {
         return $this->hasMany(JobListing::class);

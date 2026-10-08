@@ -18,13 +18,15 @@ class CityResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'slug'=>$this->slug,
+            'slug' => $this->slug,
             'overview' => $this->slug,
             'latitude' => $this->latitude,
-            'longitude'=>$this->longitude,
+            'longitude' => $this->longitude,
             'active' => $this->active,
             // Relationship Table
-        'province' => ProvinceResource::make($this->whenLoaded('province')),
+            'province' => ProvinceResource::make($this->whenLoaded('province')),
+            'jobs' => JobListingResource::collection($this->whenLoaded('jobListings')),
+            'areas' => AreaResource::collection($this->whenLoaded('areas')),
         ];
     }
 }

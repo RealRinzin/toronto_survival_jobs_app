@@ -15,7 +15,7 @@ class AreaController extends Controller
     public function index()
     {
         //
-        $areas = Area::active()->with(['province','jobListings'])->get();
+        $areas = Area::active()->with(['city','jobListings'])->get();
         return AreaResource::collection($areas);
     }
 

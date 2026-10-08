@@ -36,7 +36,14 @@ class City extends Model
     /* -------------------------------------------------------------
      | Relationships
      |-------------------------------------------------------------*/
-
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
+    public function areas()
+    {
+        return  $this->hasMany(Area::class);
+    }
     public function jobListings()
     {
         return $this->hasMany(JobListing::class);
@@ -48,6 +55,6 @@ class City extends Model
 
     public function scopeActive(Builder $query): void
     {
-        $query->where('active', true);
+        $query->where('active', false);
     }
 }

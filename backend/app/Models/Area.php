@@ -36,6 +36,10 @@ class Area extends Model
     {
         return $this->belongsTo(Province::class);
     }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
     public function jobListings()
     {
         return $this->hasMany(JobListing::class);
@@ -46,6 +50,6 @@ class Area extends Model
 
     public function scopeActive(Builder $query): void
     {
-        $query->where('active', true);
+        $query->where('active', false);
     }
 }

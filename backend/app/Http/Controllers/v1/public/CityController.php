@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\public;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\v1\public\CityResource;
 use App\Models\City;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class CityController extends Controller
     public function index()
     {
         //
-        return City::active()->orderBy('name', 'asc')->get();
+        $cities = City::active()->with(['province','areas','jobListings'])->get();
+        return CityResource::collection($cities);
     }
 
 
