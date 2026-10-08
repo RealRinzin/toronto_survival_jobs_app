@@ -1,5 +1,6 @@
 <?php
 
+use App\Support\TextHelper;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\DomCrawler\Crawler;
 use Illuminate\Support\Facades\Route;
@@ -76,4 +77,27 @@ Route::get('/scrape', function () {
     echo "<pre>";
     print_r($data);
     echo "</pre>";
+});
+
+
+
+
+Route::get('/checkTag', function () {
+    $content = 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor. Est facilis similique mollit officia deserunt dolor occaecat. Cupidatat laborum animi consequatur fugiat vero.
+
+Nulla fugiat dolore in eu ut temporibus omnis. Voluptatum est nisi nisi laboris proident at ea imperdiet eu. Eos qui dolores aut cillum commodo commodo minim dignissimos dolore similique do.
+
+Irure nisi id omnis dolor in nihil culpa elit fugiat autem id. Est maxime autem libero fuga eu non. Ullamco elit mollit placeat nulla aliqua nulla autem assumenda cumque eu. Quos mollit aute optio soluta ullamco harum. Cillum deserunt velit qui optio expedita harum at.';
+
+// echo $content;
+// if(TextHelper::TagMatcher($content,'asd')){
+//     echo "Present";
+// }else{
+//     echo "No ";
+// }
+
+$matched = TextHelper::tagMatcher($content);   // collection of Tag models
+$ids = $matched->pluck('id'); 
+print_r($ids);
+
 });
