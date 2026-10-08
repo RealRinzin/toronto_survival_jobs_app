@@ -39,8 +39,8 @@ Route::get('/scrape', function () {
     $url = 'https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/jobs';
     $params = [
         "appliedFacets" => [
-            "locationRegionStateProvince" => ["218a720b28a74c67b5c6d42c00bdadfa"],
-            "locationHierarchy2" => ["4acf03b2e8e30167e22819530502f6dd"]
+            "locationRegionStateProvince" => [""],
+            "locationHierarchy2" => [""]
         ],
         "limit" => 10,
         "offset" => 0,
