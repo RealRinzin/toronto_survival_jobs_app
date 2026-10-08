@@ -2,14 +2,25 @@
 
 namespace App\Support;
 
-use App\Models\Tag;
-
-class TextHelper {
-    public static function tagMatcher(string $content)
+class TextHelper
+{
+    // public static function tagMatcher(string $content, string $tag): bool
+    // {
+    //     return preg_match('/\b' . preg_quote($tag, '/') . '\b/i', $content) === 1;
+    // }
+    public static function matchedTags(string $content, array $tags): array
     {
-          return Tag::all()->filter(function ($tag) use ($content) {
-            return preg_match('/\b' . preg_quote($tag->name, '/') . '\b/i', $content) === 1;
-        })->values();
-        // return preg_match('/\b' . preg_quote($tag, '/') . '\b/i', $content) === 1;
+        if ($content === '' || empty($tags)) {
+            return [];
+        }
+
+        $pattern = '/\b(' . implode('|', array_map(
+            fn($t) => preg_quote($t, '/'),
+            $tags
+        )) . ')\b/iu';
+
+        preg_match_all($pattern, $content, $m);
+
+        return array_unique(array_map('mb_strtolower', $m[1]));
     }
 }

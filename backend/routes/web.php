@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Tag;
 use App\Support\TextHelper;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Symfony\Component\DomCrawler\Crawler;
 use Illuminate\Support\Facades\Route;
@@ -26,13 +28,13 @@ Route::get('/', function () {
     return response()->json($books);
 });
 
-Route::get('/httpclient-api',function(){
-$response = Http::get('https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/jobs');
+Route::get('/httpclient-api', function () {
+    $response = Http::get('https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/jobs');
 
-$post = $response->json();
-dd($post);
-echo $post['title'];
-echo $post['body'];
+    $post = $response->json();
+    dd($post);
+    echo $post['title'];
+    echo $post['body'];
 });
 
 
@@ -83,21 +85,31 @@ Route::get('/scrape', function () {
 
 
 Route::get('/checkTag', function () {
-    $content = 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor. Est facilis similique mollit officia deserunt dolor occaecat. Cupidatat laborum animi consequatur fugiat vero.
 
-Nulla fugiat dolore in eu ut temporibus omnis. Voluptatum est nisi nisi laboris proident at ea imperdiet eu. Eos qui dolores aut cillum commodo commodo minim dignissimos dolore similique do.
+
+    $content = 'Lorem Remote dolor sit amet consectetur adipiscing elit dolor. Est facilis similique mollit officia deserunt dolor occaecat. Cupidatat laborum animi consequatur fugiat vero.
+
+Nulla fugiat dolore in eu ut temporibus omnis. Entry Level est nisi nisi laboris proident at Hybrid imperdiet eu. Eos qui dolores aut cillum commodo commodo minim dignissimos dolore similique do.
 
 Irure nisi id omnis dolor in nihil culpa elit fugiat autem id. Est maxime autem libero fuga eu non. Ullamco elit mollit placeat nulla aliqua nulla autem assumenda cumque eu. Quos mollit aute optio soluta ullamco harum. Cillum deserunt velit qui optio expedita harum at.';
 
-// echo $content;
-// if(TextHelper::TagMatcher($content,'asd')){
-//     echo "Present";
-// }else{
-//     echo "No ";
-// }
+    // Regular solution
+    // $tags = Tag::get();
+    // foreach ($tags as $tag) {
+    //     if (TextHelper::TagMatcher($content, $tag['name'])) {
+    //         echo $tag['name'];
+    //         return "Present";
+    //     } else {
+    //         echo "No ";
+    //     }
+    // }
 
-$matched = TextHelper::tagMatcher($content);   // collection of Tag models
-$ids = $matched->pluck('id'); 
-print_r($ids);
+    // OPTIMIZED SOLUTION
+    $tags = Cache::remember('tag_names', 3600, fn() => Tag::pluck('name', 'id'));
+    $matched = $tags->filter(
+        fn($name) => TextHelper::matchedTags($content, $name)
+    );
 
+    // $matched is keyed by tag id, so:
+    $ids = $matched->keys();
 });
