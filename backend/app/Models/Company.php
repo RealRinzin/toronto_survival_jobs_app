@@ -60,6 +60,11 @@ class Company extends Model
     {
         return $this->hasMany(JobListing::class);
     }
+    /** Scrap Company Job */
+
+    public function scrapeCompanyJob(){
+        return $this->belongsTo(ScrapeCompanyJob::class);
+    }
 
     /* -------------------------------------------------------------
      | Scopes

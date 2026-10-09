@@ -83,6 +83,16 @@ Route::get('/scrape', function () {
 
 
 
+Route::get('/json',function(){
+$ch = curl_init('http://localhost:8001/storage/json/bestbuy.json');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+print_r($response);
+curl_close($ch);
+
+});
+
+
 
 Route::get('/checkTag', function () {
 
