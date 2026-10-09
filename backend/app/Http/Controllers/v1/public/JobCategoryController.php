@@ -20,10 +20,11 @@ class JobCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(JobCategory $jobCategory)
     {
         //
-        return $id;
+        return new JobCategoryResource($jobCategory);
+
     }
 
     /**
