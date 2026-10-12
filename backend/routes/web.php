@@ -42,11 +42,24 @@ Route::get('/scrape', function () {
     $url = 'https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/jobs';
     $params = [
         "appliedFacets" => [
-            "locationRegionStateProvince" => [""],
-            "locationHierarchy2" => [""]
+            // "locationRegionStateProvince" => [""],
+            // "locationHierarchy2" => [""]
+
+            "locationRegionStateProvince" => [
+                "218a720b28a74c67b5c6d42c00bdadfa"
+            ],
+            "locationHierarchy2" => [
+                "4acf03b2e8e30167e22819530502f6dd",
+                "4acf03b2e8e3015b97f55d5305026ce0"
+            ],
+            "jobFamilyGroup" => [
+                "4acf03b2e8e3010f6c2451b60502b065"
+            ]
+
         ],
-        "limit" => 10,
-        "offset" => 0,
+
+        // "limit" => 10,
+        // "offset" => 0,
         "searchText" => ""
     ];
     // cURL setup
@@ -83,13 +96,12 @@ Route::get('/scrape', function () {
 
 
 
-Route::get('/json',function(){
-$ch = curl_init('http://localhost:8001/storage/json/bestbuy.json');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-print_r($response);
-curl_close($ch);
-
+Route::get('/json', function () {
+    $ch = curl_init('http://localhost:8001/storage/json/bestbuy.json');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    print_r($response);
+    curl_close($ch);
 });
 
 

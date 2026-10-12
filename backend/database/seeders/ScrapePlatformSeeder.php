@@ -21,6 +21,7 @@ class ScrapePlatformSeeder extends Seeder
                 'slug' => 'myworkday',
                 'scrape_method' => 'api'
             ],
+            
         ]);
     }
 }
