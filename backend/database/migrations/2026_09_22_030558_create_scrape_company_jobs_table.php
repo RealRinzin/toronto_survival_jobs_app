@@ -38,10 +38,10 @@ return new class extends Migration
             $table->string('list_selector')->nullable();
             $table->json('selectors')->nullable();
             // Session / pacing
-            $table->string('cookie_jar_path')->nullable();
-            $table->unsignedInteger('rate_limit_seconds')->default(3); // between requests within one run
-            $table->unsignedInteger('timeout_seconds')->default(15);
-            $table->unsignedInteger('max_retries')->default(2);
+            // $table->string('cookie_jar_path')->nullable();
+            // $table->unsignedInteger('rate_limit_seconds')->default(3); // between requests within one run
+            // $table->unsignedInteger('timeout_seconds')->default(15);
+            // $table->unsignedInteger('max_retries')->default(2);
 
             // Scheduling / state
             $table->integer('scrape_frequency_minutes')->default(1440); // how often to re-run entirely
