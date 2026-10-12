@@ -100,9 +100,5 @@ Route::get('/insert', function () {
 // Job Category Check function
 
 Route::get('/check', function () {
-    // $start = microtime(true);
-    $jobCategories = Cache::remember('job_categories', 3600, fn() => JobCategory::select('name', 'id')->get()->toArray());
-    foreach ($jobCategories as $category) {
-        print_r($category['id']);
-    }
+    
 });

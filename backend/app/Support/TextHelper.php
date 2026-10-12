@@ -7,11 +7,9 @@ use Illuminate\Support\Facades\Cache;
 
 class TextHelper
 {
-
     /* -------------------------------------------------------------
      | Job Category Role Check Function
      |-------------------------------------------------------------*/
-
     public static function JobRoleCategoryChecker(string $companyRoleName): int
     {
         $jobCategories = Cache::remember('job_categories', 3600, fn() => JobCategory::select('name', 'id')->get()->toArray());
