@@ -2,25 +2,26 @@
 
 namespace App\Support;
 
+use App\Models\JobCategory;
+use Illuminate\Support\Facades\Cache;
+
 class TextHelper
 {
-    // public static function tagMatcher(string $content, string $tag): bool
-    // {
-    //     return preg_match('/\b' . preg_quote($tag, '/') . '\b/i', $content) === 1;
-    // }
-    public static function matchedTags(string $content, array $tags): array
+
+    /* -------------------------------------------------------------
+     | Job Category Role Check Function
+     |-------------------------------------------------------------*/
+
+    public static function JobRoleCategoryChecker(string $companyRoleName): int
     {
-        if ($content === '' || empty($tags)) {
-            return [];
+        $jobCategories = Cache::remember('job_categories', 3600, fn() => JobCategory::select('name', 'id')->get()->toArray());
+        foreach ($jobCategories as $category) {
+            similar_text(mb_strtolower($category['name']), mb_strtolower($companyRoleName), $percent);
+            if (round($percent, 2) > 50) {
+                // echo $category;
+                return $category['id'];
+            }
+            return 2;
         }
-
-        $pattern = '/\b(' . implode('|', array_map(
-            fn($t) => preg_quote($t, '/'),
-            $tags
-        )) . ')\b/iu';
-
-        preg_match_all($pattern, $content, $m);
-
-        return array_unique(array_map('mb_strtolower', $m[1]));
     }
 }
