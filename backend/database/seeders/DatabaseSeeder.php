@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             ScrapePlatformSeeder::class,
             ScrapCompanyJobSeeder::class,
         ]);
-        ScrapePlatform::factory(20)->create();
-        ScrapeCompanyJob::factory(1)->create();
+        // ScrapePlatform::factory(20)->create();
+        // ScrapeCompanyJob::factory(1)->create();
     }
 }

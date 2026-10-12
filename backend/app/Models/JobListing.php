@@ -12,6 +12,32 @@ class JobListing extends Model
     use HasFactory;
 
     /* -------------------------------------------------------------
+     | Fillable fields
+     |-------------------------------------------------------------*/
+    protected $fillable = [
+        'title',
+        'slug',
+        'unique_job_id',
+        'description',
+        'address',
+        'location',
+        'country',
+        'salary',
+        'published',
+        'apply_url',
+        'posted_date',
+        'due_date',
+        'system_posted_date',
+        'company_id',
+        'employment_type_id',
+        'job_category_id',
+        'business_category_id',
+        'area_id',
+        'city_id',
+        'province_id',
+        'active',
+    ];
+    /* -------------------------------------------------------------
      | Cast protect
      |-------------------------------------------------------------*/
     protected function casts(): array
@@ -36,26 +62,32 @@ class JobListing extends Model
         return $this->belongsTo(Company::class);
     }
     // Categories
-    public function jobCategory(){
+    public function jobCategory()
+    {
         return $this->belongsTo(JobCategory::class);
     }
     // Employment Type
-    public function employmentType(){
+    public function employmentType()
+    {
         return $this->belongsTo(EmploymentType::class);
     }
     // Province
-    public function province(){
+    public function province()
+    {
         return $this->belongsTo(Province::class);
     }
     // City
-    public function city(){
+    public function city()
+    {
         return $this->belongsTo(City::class);
     }
-        public function area(){
+    public function area()
+    {
         return $this->belongsTo(Area::class);
     }
     // Tags
-    public function tags(){
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class);
     }
     /* -------------------------------------------------------------

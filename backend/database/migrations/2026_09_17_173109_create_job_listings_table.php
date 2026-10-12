@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('job_listings', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->unique();
             $table->string('slug')->unique();
+            $table->string('unique_job_id')->unique();
             $table->longText('description');
             $table->string('address')->nullable();
             $table->string('location')->nullable();

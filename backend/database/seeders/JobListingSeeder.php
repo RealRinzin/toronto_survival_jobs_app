@@ -51,6 +51,7 @@ class JobListingSeeder extends Seeder
             $rows[] = [
                 'title'       => $title,
                 'slug'        => Str::slug($title) . '-' . ($i + 1),
+                'unique_job_id'        => Str::slug($title) . '-' . ($i + 1),
                 'description' => "We are looking for a {$title} to join our team. "
                     . "You will collaborate with cross-functional teams, write clean and "
                     . "maintainable code, and help ship features to production.",
