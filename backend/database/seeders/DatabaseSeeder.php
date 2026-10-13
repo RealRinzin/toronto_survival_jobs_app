@@ -2,10 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\BusinessCategory;
-use App\Models\Company;
-use App\Models\ScrapeCompanyJob;
-use App\Models\ScrapePlatform;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

@@ -4,8 +4,9 @@ namespace App\Http\Controllers\v1\public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\v1\public\TagResource;
-use App\Http\Resources\v1\public\TagResourceCollection;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class TagController extends Controller
 {
@@ -15,7 +16,18 @@ class TagController extends Controller
     public function index()
     {
         //
-        return TagResource::get();
+        $start = microtime(true);
+        $tags = Cache::remember(
+            'tags:active',
+            now()->addHours(10),
+            function () {
+                return TagResource::collection(
+                    Tag::active()->get()
+                )->resolve();
+            }
+        );
+        Log::info('Tag - total : ' . round((microtime(true) - $start) * 1000, 2) . ' ms');
+        return response()->json(['data'=>$tags]);
     }
 
     /**
@@ -25,5 +37,4 @@ class TagController extends Controller
     {
         //
     }
-
 }
