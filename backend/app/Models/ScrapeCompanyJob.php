@@ -15,6 +15,9 @@ class ScrapeCompanyJob extends Model
      | Hide Field
      |-------------------------------------------------------------*/
     protected $hidden = ['created_at', 'updated_at'];
+    /* -------------------------------------------------------------
+     | Protected the cast for the array json field  
+     |-------------------------------------------------------------*/
     protected $casts = ['request_body' => 'array'];
     /* -------------------------------------------------------------
      | Relationships

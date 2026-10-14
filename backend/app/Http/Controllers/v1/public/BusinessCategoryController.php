@@ -17,7 +17,6 @@ class BusinessCategoryController extends Controller
         return BusinessCategory::with('companies')->get();
     }
 
-
     /**
      * Display the specified resource.
      */
