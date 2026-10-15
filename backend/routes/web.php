@@ -16,9 +16,7 @@ use Illuminate\Support\Str;
 Route::get('/', function () {
     // return view('welcome');
     $response = Http::get('https://books.toscrape.com/catalogue/category/books/philosophy_7/index.html');
-
     $crawler = new Crawler($response->body());
-
     $books = $crawler->filter('article.product_pod')->each(
         function ($node) {
             return [
@@ -35,7 +33,7 @@ Route::get('/', function () {
 });
 
 
-
+// 
 Route::get('/insert', function () {
     $source = ScrapeCompanyJob::first();
     $areaIds           = DB::table('areas')->pluck('id')->all();
@@ -48,7 +46,7 @@ Route::get('/insert', function () {
         'Referer'   => $source->origin,
         'Accept'    => $source->accept,
         'Accept-Language'        => $source->accept_language,
-        'User-Agent'             => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+        'User-Agent'             => $source->user_agent,
     ]))
         ->timeout(20)
         ->post($source->base_url, $source->request_body);
@@ -65,10 +63,10 @@ Route::get('/insert', function () {
             'Referer'   => $source->origin,
             'Accept'    => $source->accept,
             'Accept-Language'        => $source->accept_language,
-            'User-Agent'             => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+            'User-Agent'             => $source->user_agent,
         ]))
             ->timeout(20)
-            ->get('https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/' . $posting['externalPath']);
+            ->get($source->endpoint . $posting['externalPath']);
 
         // check
         if ($individual->failed()) {
@@ -86,7 +84,7 @@ Route::get('/insert', function () {
             'country'     => 'CA',
             'salary'      => rand(0, 1) ? rand(50000, 150000) : null,
             'published'   => true,
-            'apply_url'   => 'https://example.com/careers/',
+            'apply_url'   => $individual['jobPostingInfo']['externalUrl'],
             'posted_date' => $individual['jobPostingInfo']['startDate'],
             'due_date' => $individual['jobPostingInfo']['endDate'],
             'system_posted_date' => $now->toDateString(),
@@ -96,8 +94,10 @@ Route::get('/insert', function () {
             'employment_type_id' => TextHelper::EmploymentTypeChecker($individual['jobPostingInfo']['timeType']),
             'job_category_id'     => TextHelper::JobRoleCategoryChecker($individual['jobPostingInfo']['title']),
             'area_id'            => Arr::random($areaIds ?: [null]),
-            'city_id'            => Arr::random($cityIds ?: [null]),
-            'province_id'        => Arr::random($provinceIds ?: [null]),
+            // 'city_id'            => TextHelper::CityChecker($individual['jobPostingInfo']['location']),
+            'city_id'            => TextHelper::MatchAreaCityProvinceChecker('cities', $individual['jobPostingInfo']['location'], 'province_id', new City()),
+            'province_id' => 1,
+            // 'province_id'        => TextHelper::MatchAreaCityProvinceChecker('provinces',$individual['jobPostingInfo']['location'],'active',new City()),
             'active'      => true,
         ]);
         $saved++;
@@ -107,8 +107,8 @@ Route::get('/insert', function () {
 
 
 // Job Category Check function
-
 Route::get('/check', function () {
-    $name = TextHelper::CityChecker('Airdrie');
-    echo $name;
+    $address = 'asdfad ,23234 Brampton';
+    return TextHelper::MatchAreaCityProvinceChecker('cities', $address, 'province_id', new City());
+
 });

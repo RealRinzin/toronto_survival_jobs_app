@@ -27,11 +27,11 @@ class ScrapCompanyJobSeeder extends Seeder
                     ],
                     "locationHierarchy2" => [
                         "4acf03b2e8e30167e22819530502f6dd",
-                        "4acf03b2e8e3015b97f55d5305026ce0"
+                        // "4acf03b2e8e3015b97f55d5305026ce0"
                     ],
-                    "jobFamilyGroup" => [
-                        "4acf03b2e8e3010f6c2451b60502b065"
-                    ]
+                    // "jobFamilyGroup" => [
+                    //     "4acf03b2e8e3010f6c2451b60502b065"
+                    // ]
                 ],
                 'limit' => 20,
                 'offset' => 0,
@@ -39,11 +39,12 @@ class ScrapCompanyJobSeeder extends Seeder
             ]),
             'origin' => 'https://bestbuycanada.wd3.myworkdayjobs.com',
             'referer' => 'https://bestbuycanada.wd3.myworkdayjobs.com',
+            'endpoint' => 'https://bestbuycanada.wd3.myworkdayjobs.com/wday/cxs/bestbuycanada/BestBuyCA_Career/',
             'accept' => 'application/json',
             'accept_language' => 'en-US',
             'accept_encoding' => 'gzip,deflate,br,zstd',
             'content_type' => 'application/json',
-            'user_agent' =>  'Mo',
+            'user_agent' =>  'User Agent',
             'active' => true
 
         ]);

@@ -5,7 +5,9 @@ namespace App\Support;
 use App\Models\City;
 use App\Models\EmploymentType;
 use App\Models\JobCategory;
+use App\Models\Province;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
 
 class TextHelper
 {
@@ -43,15 +45,44 @@ class TextHelper
     /* -------------------------------------------------------------
      | CITY TYPE CHECKER
      |-------------------------------------------------------------*/
-    public static function CityChecker(string $cityName)
+    public static function CityChecker(string $cityName): int
     {
-        $cities = Cache::remember('cities', 3600, fn() => City::select('name', 'id')->get()->toArray());
+        $cities = Cache::remember('cities', 3600, fn() => City::select('name', 'id', 'province_id')->get()->toArray());
         foreach ($cities as $city) {
-            similar_text(mb_strtolower($city['name']), mb_strtolower($cityName), $percent);
-            if (round($percent, 2) > 70) {
+            if (stripos($cityName, $city['name']) !== false) {
                 return $city['id'];
+                break;
             }
-            return 3;
+            return 4;
         }
+    }
+    /* -------------------------------------------------------------
+     | PROVINCE TYEP CHECKER
+     |-------------------------------------------------------------*/
+    public static function ProvinceChecker(string $cityName): int
+    {
+        $cities = Cache::remember('cities', 3600, fn() => City::select('name', 'id', 'province_id')->get()->toArray());
+        foreach ($cities as $city) {
+            if (stripos($cityName, $city['name']) !== false) {
+                return $city['province_id'];
+                break;
+            }
+            return 4;
+        }
+    }
+    /* -------------------------------------------------------------
+     | Area TYEP CHECKER
+     |-------------------------------------------------------------*/
+
+    public static function MatchAreaCityProvinceChecker(string $table, string $name, string $field, Model $model):int
+    {
+        $lists = Cache::remember($table, 3600, fn() => $model::select('id', 'name', $field)->get()->toArray());
+        foreach ($lists as $list) {
+            if (stripos(mb_strtolower($name), mb_strtolower($list['name'])) !== false) {
+                return  $list['id'];
+                break;
+            }
+        }
+        return 1;
     }
 }

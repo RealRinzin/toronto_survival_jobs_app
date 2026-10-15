@@ -23,6 +23,7 @@ return new class extends Migration
             // Headers
             $table->string('origin')->nullable();
             $table->string('referer')->nullable();
+            $table->string('endpoint');
             $table->enum('accept', [
                 'application/json',
                 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
