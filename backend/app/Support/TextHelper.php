@@ -42,47 +42,40 @@ class TextHelper
         }
     }
 
+
     /* -------------------------------------------------------------
-     | CITY TYPE CHECKER
-     |-------------------------------------------------------------*/
-    public static function CityChecker(string $cityName): int
-    {
-        $cities = Cache::remember('cities', 3600, fn() => City::select('name', 'id', 'province_id')->get()->toArray());
-        foreach ($cities as $city) {
-            if (stripos($cityName, $city['name']) !== false) {
-                return $city['id'];
-                break;
-            }
-            return 4;
-        }
-    }
-    /* -------------------------------------------------------------
-     | PROVINCE TYEP CHECKER
-     |-------------------------------------------------------------*/
-    public static function ProvinceChecker(string $cityName): int
-    {
-        $cities = Cache::remember('cities', 3600, fn() => City::select('name', 'id', 'province_id')->get()->toArray());
-        foreach ($cities as $city) {
-            if (stripos($cityName, $city['name']) !== false) {
-                return $city['province_id'];
-                break;
-            }
-            return 4;
-        }
-    }
-    /* -------------------------------------------------------------
-     | Area TYEP CHECKER
+     | Proince and City  TYEP CHECKER
      |-------------------------------------------------------------*/
 
-    public static function MatchAreaCityProvinceChecker(string $table, string $name, string $field, Model $model):int
+    public static function MatchCityProvinceChecker(string $target, string $table, string $name, string $field, Model $model): int
     {
         $lists = Cache::remember($table, 3600, fn() => $model::select('id', 'name', $field)->get()->toArray());
         foreach ($lists as $list) {
-            if (stripos(mb_strtolower($name), mb_strtolower($list['name'])) !== false) {
-                return  $list['id'];
+            if (stripos($name, $list['name']) !== false) {
+                return $target === 'city' ? $list['id'] : $list['province_id'];
                 break;
             }
         }
-        return 1;
+        return 6;
+    }
+
+    /* -------------------------------------------------------------
+     | Area TYEP CHECKER
+     |-------------------------------------------------------------*/
+    public static function AreaChecker(string $name): int
+    {
+        $cities = Cache::remember('cities', 3600, fn() => City::select('id', 'name')->with('areas:id,name,city_id')->get()->toArray());
+        foreach ($cities as $city) {
+            if (stripos($name, $city['name']) !== false) {
+                foreach ($city['areas'] as $targetCity) {
+                    if (stripos($city['name'], $targetCity['name']) !== false) {
+                        return $targetCity['city_id'];
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        return 3;
     }
 }

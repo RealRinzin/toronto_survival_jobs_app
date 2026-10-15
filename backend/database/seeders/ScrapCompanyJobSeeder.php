@@ -26,12 +26,12 @@ class ScrapCompanyJobSeeder extends Seeder
                         "218a720b28a74c67b5c6d42c00bdadfa"
                     ],
                     "locationHierarchy2" => [
-                        "4acf03b2e8e30167e22819530502f6dd",
-                        // "4acf03b2e8e3015b97f55d5305026ce0"
+                        // "4acf03b2e8e30167e22819530502f6dd",
+                        "4acf03b2e8e3015b97f55d5305026ce0"
                     ],
-                    // "jobFamilyGroup" => [
-                    //     "4acf03b2e8e3010f6c2451b60502b065"
-                    // ]
+                    "jobFamilyGroup" => [
+                        "4acf03b2e8e3010f6c2451b60502b065"
+                    ]
                 ],
                 'limit' => 20,
                 'offset' => 0,
