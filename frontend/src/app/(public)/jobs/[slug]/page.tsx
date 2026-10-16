@@ -1,4 +1,5 @@
-import React from "react";
+import JobCardSkeleton from "@/components/job/JobCardSkeleton";
+import React, { Suspense } from "react";
 export default async function JobDetailPage({
   params,
 }: {
@@ -10,8 +11,10 @@ const job = await res.json()
 console.log(job)
   return (
     <div>
-      <p>Public - {process.env.NEXT_PUBLIC_API_URL}</p>
-      <p>Server-{process.env.API_URL}</p>
+      <Suspense fallback={<JobCardSkeleton />}>
+        {/* <JobContent slug={slug} /> */}
+        <p>{job.data.description}</p>
+      </Suspense>
     </div>
   );
 }
