@@ -149,8 +149,8 @@ Route::get('/salary_check', function () {
 Route::get('/gemini', function () {
 
     // $model = 'gemini-3.8-flash';
-    $model = 'gemini-3.1-flash-lite';
-    // $model = 'gemini-3.5-flash-lite';
+    // $model = 'gemini-3.1-flash-lite';
+    $model = 'gemini-3.5-flash-lite';
     // $model = 'gemma-4-31b-it';
     // check AI Studio's model list for current names
 
