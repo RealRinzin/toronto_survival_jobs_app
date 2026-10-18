@@ -47,14 +47,11 @@ class JobListingSeeder extends Seeder
 
         foreach ($titles as $i => $title) {
             $postedDate = $now->copy()->subDays(rand(0, 20));
-
             $rows[] = [
                 'title'       => $title,
-                'slug'        => Str::slug($title) . '-' . ($i + 1),
+                'slug'        => Str::slug($title) . '-' . ($i + 1) . random_int(1000, 9999),
                 'unique_job_id'        => Str::slug($title) . '-' . ($i + 1),
-                'description' => "We are looking for a {$title} to join our team. "
-                    . "You will collaborate with cross-functional teams, write clean and "
-                    . "maintainable code, and help ship features to production.",
+                'description' => Str::lower(Str::random()),
                 'address'     => rand(100, 999) . ' King Street West',
                 'location'    => 'Toronto, ON',
                 'country'     => 'CA',
