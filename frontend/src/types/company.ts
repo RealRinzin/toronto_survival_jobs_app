@@ -9,4 +9,6 @@ interface CompanyDType{
     founded:number,
     headquaters:string,
     active:boolean
+    // Relationship Table
+    businessCategory:businessCategoryType,
 }

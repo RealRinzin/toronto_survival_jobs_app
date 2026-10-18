@@ -5,6 +5,8 @@ interface CityDType {
     overview:string,
     latitude:number,
     longitude:number,
-    active:boolean,
     provice_id:number
+    active:boolean,
+    // Relationship Table
+    province:ProvinceDType,
 }

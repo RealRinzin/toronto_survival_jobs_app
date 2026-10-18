@@ -15,6 +15,7 @@ interface JobsDType{
     employmentType?:EmploymentTypeDType,
     jobCategory:JobCategoriesDType,
     company:CompanyDType,
+    area?:areaDtype,
     city:CityDType,
     province:ProvinceDType,
     tags?:TagDType[]
