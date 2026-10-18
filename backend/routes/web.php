@@ -148,17 +148,16 @@ Route::get('/salary_check', function () {
 
 Route::get('/gemini', function () {
 
-    $model = 'gemini-3.8-flash';
+    // $model = 'gemini-3.8-flash';
     // $model = 'gemini-3.1-flash-lite';
-    // $model = 'gemini-3.5-flash-lite';
+    $model = 'gemini-3.5-flash-lite';
     // $model = 'gemma-4-31b-it';
     // check AI Studio's model list for current names
-
     $para = '<p>You’ll love it here! We are <b>hiring immediately</b> for a <b>merchandiser</b>, which we call a <b>product process specialist</b> at Best Buy<b>. </b>As a <b>merchandiser</b>, you will keep our store looking great.</p><p></p><p>No experience required! Your everyday tech use has already given you a great foundation, and we’ll provide the rest of the training you need to assist our customers.</p><p></p><p>Join us and grow your career with our retail team as a <b>merchandiser</b>.</p><p></p><p><b>What you’ll do:</b></p><ul><li><p>Replenish inventory on the shelves and ensure product availability</p></li><li><p>Help customers retrieve their products and respond to their questions</p></li><li><p>Create an amazing customer experience</p></li></ul><p></p><p><b>What we’re looking for: </b></p><ul><li><p>Enthusiasm to assist our customers</p></li><li><p>Flexibility to adapt to dynamic situations in a fast-paced environment</p></li><li><p>A commitment to maintaining a safe and fun working environment</p></li></ul><p></p><p><b>Why you’ll love it here:</b></p><ul><li><p>Employee discounts on awesome tech </p></li><li><p>Competitive compensation and benefits</p></li><li><p>Flexible schedules as per business needs</p></li><li><p>Supportive leaders who care about you and your wellbeing</p></li><li><p>An inclusive, fun, and supportive team who you will quickly call friends</p></li><li><p>Training programs to build new and transferable skills and achieve certifications</p></li></ul><p></p><p><b>Join our amazing team!</b></p><p>We are looking for people just like you.</p><p></p><p><b>About Best Buy</b></p><p>As Canada&#39;s destination for the coolest tech, Best Buy offers one of the best work environments in the country! Our culture is one of inclusion and recognition. We are committed to always filling our stores across Canada with a diverse and inclusive retail force who are passionate, knowledgeable, and enthusiastic about tech.</p><p></p><p>Grow your career in similar roles (customer service representative, sales associate, online order pick-up specialist) or development roles (team lead, assistant store leader, store leader).</p><p style="text-align:inherit"></p><p style="text-align:inherit"></p><p style="text-align:left"><b><u>Base pay range</u></b></p>Hourly pay rate: $17.95 - $21.09<p></p><p><i>Pay may vary by province. Pay listed is for the location advertised.</i></p><p><i>  </i></p>167 North Queen Street, Etobicoke, ON M9C 1A7<p> </p><p>This posting is for a vacancy.</p><p> </p>';
     $response = Http::withHeaders(['x-goog-api-key' => config('services.gemini.key')])
         ->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent", [
             'contents' => [[
-                'parts' => [['text' => "Extract the pay or salary and area or area,city and province and  from this job posting. Return only JSON: {\"min\": number|null, \"max\": number|null, \"period\": \"hour\"|\"year\"|null}\city,province\n\n" . $para]],
+                'parts' => [['text' => "Extract the pay or salary and area or area,city and province with its full name and  from this job posting. Return only JSON: {\"min\": number|null, \"max\": number|null, \"period\": \"hour\"|\"year\"|null}\city,province\n\n" . $para]],
             ]],
             'generationConfig' => ['responseMimeType' => 'application/json'],
         ]);
