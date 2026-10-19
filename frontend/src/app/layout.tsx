@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PageWrapper from "@/components/layout/PageWrapper";
+import { SITE_NAME, SITE_URL } from "@/lib/metadata";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -25,8 +26,9 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Toronto Survival Jobs",
-  description: "Find the survival Jobs from the toronto",
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
+  description: "Toronto Survival Jobs.ca | Find the surival jobs",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -36,9 +38,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fraunces.variable} ${dmSans.variable}  ${dmMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-          <Navigation />
-          {children}
-          <Footer />
+        <Navigation />
+        {children}
+        <Footer />
       </body>
     </html>
   );

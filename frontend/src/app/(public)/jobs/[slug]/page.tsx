@@ -1,11 +1,26 @@
 import AdUnit from "@/components/Ads/Ads";
-import JobCardSkeleton from "@/components/job/JobCardSkeleton";
 import JobDescriptionCard from "@/components/job/JobDescription/JobDescriptionCard";
 import JobOverviewCard from "@/components/job/JobOverview/JobOverviewCard";
-import JobOverviewSkeletonCard from "@/components/job/JobOverview/JobOverviewSkeletonCard";
-import PageGridWrapper from "@/components/layout/PageGridWrapper";
+
 import PageWrapper from "@/components/layout/PageWrapper";
-import React, { Suspense } from "react";
+import { buildMetadata, toPlainText } from "@/lib/metadata";
+import { Metadata } from "next";
+
+export async function generateMetadata({params}:metaDataDType):Promise<Metadata>{
+  const { slug } = await params;
+  const res = await fetch(`${process.env.API_URL}/jobs/${slug}`);
+
+  const {data:job} = await res.json();
+
+  
+  return buildMetadata({
+    title: `${job.title} at ${job.company?.name}`,
+    description: toPlainText(job?.description),
+    path: `/jobs/${slug}`,
+    type: "article",
+  });
+}
+
 export default async function JobDetailPage({
   params,
 }: {
