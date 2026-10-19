@@ -11,7 +11,6 @@ export default async function Card({ data }: any) {
     <div className="py-10">
       <p>{data?.name}</p>
       <p className="text-4xl">{data?.avatar}</p>
-      
     </div>
   );
 }
