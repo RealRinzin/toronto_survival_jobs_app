@@ -19,7 +19,6 @@ type PageGridWrapperDtyp = {
   children:ReactNode
   sm?:keyof typeof smCols;
   md?:keyof typeof mdCols;
-
 }
 export default function PageGridWrapper(
   {children,sm=1,md=3}:PageGridWrapperDtyp
