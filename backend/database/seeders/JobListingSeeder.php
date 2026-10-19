@@ -51,7 +51,7 @@ class JobListingSeeder extends Seeder
                 'title'       => $title,
                 'slug'        => Str::slug($title) . '-' . ($i + 1) . random_int(1000, 9999),
                 'unique_job_id'        => Str::slug($title) . '-' . ($i + 1),
-                'description' => Str::lower(Str::random()),
+                'description' => fake()->realText(100),
                 'address'     => rand(100, 999) . ' King Street West',
                 'location'    => 'Toronto, ON',
                 'country'     => 'CA',
