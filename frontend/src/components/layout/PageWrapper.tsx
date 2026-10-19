@@ -1,27 +1,17 @@
 type PageWrapperProps = {
   children: React.ReactNode;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "7xl";
-  background?: "white" | "gray" | "navy";
-  padding?: boolean;
+  background?: "white" | "bg-gray-50" | "bg-red-100";
 };
 
-const maxWidthMap: Record<NonNullable<PageWrapperProps["maxWidth"]>, string> = {
-  sm: "max-w-screen-sm",
-  md: "max-w-screen-md",
-  lg: "max-w-screen-lg",
-  xl: "max-w-screen-xl",
-  "7xl": "max-w-7xl",
-};
 export default function PageWrapper({
   children,
-  maxWidth = "lg",
+  background = "white",
 }: PageWrapperProps) {
   return (
-    <div className="bg-gray-50">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-      {children}
-    </div>
-
+    <div className={`${background}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        {children}
+      </div>
     </div>
   );
 }

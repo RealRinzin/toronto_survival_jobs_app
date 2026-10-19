@@ -139,3 +139,11 @@ h1, h2, h3 {
 
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+#job_description p{
+  padding:.6em 0;
+}
+#job_description li {
+  margin:0 2em;
+  list-style: disc;
+}
