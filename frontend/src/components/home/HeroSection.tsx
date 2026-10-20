@@ -1,4 +1,5 @@
 import React from "react";
+import JobCategory from "./List/JobCategory";
 
 export default async function HomeHeroSection() {
   const res = await fetch(`${process.env.API_URL}/cities`)
@@ -143,36 +144,7 @@ export default async function HomeHeroSection() {
 
         {/* Quick search pills — centered */}
         <div className="flex flex-wrap gap-2 justify-center">
-          <span
-            className="text-xs self-center"
-            style={{ color: "rgba(255,255,255,0.4)" }}
-          >
-            Popular:
-          </span>
-          {[
-            "Warehouse",
-            "Food Service",
-            "Delivery",
-            "Retail",
-            "Security",
-            "Construction",
-          ].map((tag) => (
-            <button
-              key={tag}
-              // onClick={() => {
-              //   setSearch(tag);
-              //   setPage("search");
-              // }}
-              className="text-xs px-3 py-1 rounded-full transition-all hover:bg-white hover:text-gray-900 font-medium"
-              style={{
-                background: "rgba(255,255,255,0.1)",
-                color: "rgba(255,255,255,0.75)",
-                border: "1px solid rgba(255,255,255,0.14)",
-              }}
-            >
-              {tag}
-            </button>
-          ))}
+          <JobCategory/>
         </div>
 
         <div

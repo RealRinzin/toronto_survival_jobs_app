@@ -1,6 +1,6 @@
 type PageWrapperProps = {
   children: React.ReactNode;
-  background?: "white" | "bg-gray-50" | "bg-red-100";
+  background?: "white"|"bg-blue-950"| "bg-gray-50" | "bg-red-100";
 };
 
 export default function PageWrapper({

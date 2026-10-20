@@ -57,8 +57,8 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-blue-950 text-white ">
-      <PageWrapper>
+    <footer className=" text-white ">
+      <PageWrapper background="bg-blue-950">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mx-auto">
           {brand.map((brand: BrandType, index: number) => {
             return (
