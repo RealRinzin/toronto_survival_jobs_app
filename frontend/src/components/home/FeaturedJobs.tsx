@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import JobCard from "../job/JobCard";
 import JobCardGrid from "../job/JobCardGrid";
 import JobCardSkeleton from "../job/JobCardSkeleton";
+import AdUnit from "../Ads/Ads";
 const JOB_TYPES = [
   "All Types",
   "Full-time",
@@ -10,11 +11,10 @@ const JOB_TYPES = [
   "Temporary",
 ];
 
-
 export default async function HomeFeaturedJobs() {
-  const res = await fetch(`${process.env.API_URL}/jobs`)
-  if(!res.ok) return <p>Something went wrong.. reload</p>
-  const jobs = await res.json()
+  const res = await fetch(`${process.env.API_URL}/jobs`);
+  if (!res.ok) return <p>Something went wrong.. reload</p>;
+  const jobs = await res.json();
   return (
     <section className="py-14 bg-muted">
       <div className="max-w-7xl mx-auto px-5">
@@ -44,6 +44,11 @@ export default async function HomeFeaturedJobs() {
             return (
               <Suspense key={index} fallback={<JobCardSkeleton />}>
                 <JobCard job={jobs} />
+                {(index + 1) % 4 == 0 && (
+                  <div className="md:col-span-2">
+                    <AdUnit size="leaderboard" />
+                  </div>
+                )}
               </Suspense>
             );
           })}
