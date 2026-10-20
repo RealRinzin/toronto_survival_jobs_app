@@ -15,7 +15,7 @@ export default function JobCard({ job }: { job: JobsDType }) {
         >
           <Link href={`/jobs/${job.slug}`}>
             <Image
-              src={`${process.env.API_URL_STORAGE}/${job?.company?.logo}`}
+              src={`${process.env.API_URL_STORAGE}/img/companies/${job?.company?.logo}`}
               alt="Compny"
               width={100}
               height={100}

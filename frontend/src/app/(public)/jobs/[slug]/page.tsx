@@ -21,6 +21,7 @@ export async function generateMetadata({
     description: toPlainText(job?.description),
     path: `/jobs/${slug}`,
     type: "article",
+    image:`${process.env.API_URL_STORAGE}/img/companies/${job?.company?.logo}`
   });
 }
 

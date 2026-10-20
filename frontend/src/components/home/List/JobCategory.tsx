@@ -1,11 +1,14 @@
+import JobCardSkeleton from "@/components/job/JobCardSkeleton";
+import Skeleton from "@/components/ui/Skeleton/Skeleton";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default async function JobCategory() {
   const res = await fetch(`${process.env.API_URL}/job_categories/meta_data`);
   const { data: categories } = await res.json();
 
   return (
+    <Suspense fallback={<Skeleton className="w-full"/>}>
     <ul className="flex gap-2">
       {categories.slice(0,6).map((category: JobCategoriesDType, index: number) => (
         <li key={index}>
@@ -23,5 +26,6 @@ export default async function JobCategory() {
         </li>
       ))}
     </ul>
+    </Suspense>
   );
 }

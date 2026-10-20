@@ -147,7 +147,7 @@ export default async function HomeHeroSection() {
           <JobCategory/>
         </div>
 
-        <div
+        {/* <div
           className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium"
           style={{ color: "rgba(255,255,255,0.72)" }}
         >
@@ -173,7 +173,7 @@ export default async function HomeHeroSection() {
               {item}
             </span>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

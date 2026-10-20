@@ -7,12 +7,13 @@ export default function JobOverviewCard({ job }: { job: JobsDType }) {
   return (
     <div className="bg-white rounded-2xl my-6 p-6 shadow-sm">
       <div className="flex gap-3">
-        <div className="border rounded-lg border-gray-100 p-2 h-20 w-20 flex justify-center items-center">
+        <div className="border rounded-lg border-gray-100  flex justify-center items-center">
           <Image
-            src={`${process.env.API_URL_STORAGE}/${job?.company?.logo}`}
+            src={`${process.env.API_URL_STORAGE}/img/companies/${job?.company?.logo}`}
             height={100}
             width={100}
             alt="Company Logo"
+            className="h-10 w-10 p-1 rounded-md border border-gray-50"
             style={{ backgroundColor: `${job?.company?.brand_color}` }}
           />
         </div>
@@ -27,7 +28,7 @@ export default function JobOverviewCard({ job }: { job: JobsDType }) {
         <li>Mid level</li>
       </ul>
       <div className="flex justify-between">
-        <p className="font-bold text-2xl"> $29- $30/hr</p>
+        <p className="font-bold text-lg"> $29- $30/hr</p>
         <a href={job?.apply_url} target="_blank" className="bg-orange-400 p-2 rounded-lg font-medium shadow">
           Apply Now
         </a>
