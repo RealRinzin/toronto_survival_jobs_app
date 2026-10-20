@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import sanitizeHtml from "sanitize-html";
 import JobOverviewSkeletonCard from "../JobOverview/JobOverviewSkeletonCard";
+import PaddingGap from "@/components/layout/PaddingGap";
 export default function JobDescriptionCard({
   description,
 }: {
@@ -9,12 +10,13 @@ export default function JobDescriptionCard({
   const style = {};
   return (
     <Suspense fallback={<JobOverviewSkeletonCard />}>
-      <div
-        className="bg-white rounded-2xl my-10 p-6 shadow-sm"
-        id="job_description"
-      >
-        <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }}></div>
-      </div>
+      <PaddingGap>
+        <div id="job_description">
+          <div
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }}
+          ></div>
+        </div>
+      </PaddingGap>
     </Suspense>
   );
 }

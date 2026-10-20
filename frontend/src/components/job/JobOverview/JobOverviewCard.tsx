@@ -1,11 +1,12 @@
 import Image from "next/image";
 import React, { Suspense } from "react";
 import JobOverviewSkeletonCard from "./JobOverviewSkeletonCard";
+import PaddingGap from "@/components/layout/PaddingGap";
 
 export default function JobOverviewCard({ job }: { job: JobsDType }) {
   console.log(job);
   return (
-    <div className="bg-white rounded-2xl my-6 p-6 shadow-sm">
+    <PaddingGap>
       <div className="flex gap-3">
         <div className="border rounded-lg border-gray-100  flex justify-center items-center">
           <Image
@@ -29,10 +30,14 @@ export default function JobOverviewCard({ job }: { job: JobsDType }) {
       </ul>
       <div className="flex justify-between">
         <p className="font-bold text-lg"> $29- $30/hr</p>
-        <a href={job?.apply_url} target="_blank" className="bg-orange-400 p-2 rounded-lg font-medium shadow">
+        <a
+          href={job?.apply_url}
+          target="_blank"
+          className="bg-orange-400 p-2 rounded-lg font-medium shadow"
+        >
           Apply Now
         </a>
       </div>
-    </div>
+    </PaddingGap>
   );
 }

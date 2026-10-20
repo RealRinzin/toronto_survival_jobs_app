@@ -2,6 +2,7 @@ import AdUnit from "@/components/Ads/Ads";
 import JobDescriptionCard from "@/components/job/JobDescription/JobDescriptionCard";
 import JobOverviewCard from "@/components/job/JobOverview/JobOverviewCard";
 import JobOverviewSkeletonCard from "@/components/job/JobOverview/JobOverviewSkeletonCard";
+import SimilarJobCard from "@/components/job/JobSimilar/SimilarJobCard";
 
 import PageWrapper from "@/components/layout/PageWrapper";
 import { buildMetadata, toPlainText } from "@/lib/metadata";
@@ -21,7 +22,7 @@ export async function generateMetadata({
     description: toPlainText(job?.description),
     path: `/jobs/${slug}`,
     type: "article",
-    image:`${process.env.API_URL_STORAGE}/img/companies/${job?.company?.logo}`
+    image: `${process.env.API_URL_STORAGE}/img/companies/${job?.company?.logo}`,
   });
 }
 
@@ -39,10 +40,11 @@ export default async function JobDetailPage({
       {/* </PageGridWrapper> */}
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
         <div className="col-span-4">
-          <Suspense fallback={<JobOverviewSkeletonCard/>}>
+          <Suspense fallback={<JobOverviewSkeletonCard />}>
             <JobOverviewCard job={job} />
             <JobDescriptionCard description={job?.description} />
             <AdUnit size="leaderboard" />
+            <SimilarJobCard />
           </Suspense>
         </div>
         <aside>
