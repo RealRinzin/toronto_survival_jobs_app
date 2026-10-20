@@ -1,19 +1,21 @@
 import { Suspense } from "react";
 import Loading from "./loding";
 import Card from "@/components/job/card";
+import PageWrapper from "@/components/layout/PageWrapper";
 
 export default async function Jobs() {
-  const res = await fetch("https://api.mydummyapi.com/users");
+  const res = await fetch("https://fakestoreapi.com/products");
   if(!res.ok) return <p> Error Reload later..</p>
-  const users = await res.json();
+  const products = await res.json();
 
   return (
-    <div>
-      {users.map((user: any) => (
-        <Suspense key={user.id} fallback={<Loading />}>
-          <Card data={user} />
+    <PageWrapper background="bg-gray-50">
+
+      {products.map((product: any) => (
+        <Suspense key={product.id} fallback={<Loading />}>
+          <Card product={product} />
         </Suspense>
       ))}
-    </div>
+      </PageWrapper>
   );
 }

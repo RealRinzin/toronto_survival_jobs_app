@@ -1,16 +1,13 @@
-import React from "react";
-
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-export default async function Card({ data }: any) {
-  // await delay(4000);
-
+import Image from "next/image";
+export default  function Card({ product }: any) {
   return (
     <div className="py-10">
-      <p>{data?.name}</p>
-      <p className="text-4xl">{data?.avatar}</p>
+      <p>{product?.title}</p>
+      <div className="flex gap-2">
+      <Image src={product?.image} height={80} width={60} alt="Image"/>
+      <p className="text-md">{product?.description}</p>
+
+      </div>
     </div>
   );
 }
