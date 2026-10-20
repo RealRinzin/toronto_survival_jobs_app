@@ -26,7 +26,7 @@ class JobListingController extends Controller
     public function show(JobListing $job)
     {
         //
-        $job->load(['company','province','city','jobCategory']);
+        $job->load(['company','jobCategory','employmentType','province','city','area','tags']);
         return new JobListingResource($job);
     }
 

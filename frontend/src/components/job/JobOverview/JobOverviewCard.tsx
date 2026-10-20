@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { Suspense } from "react";
 import JobOverviewSkeletonCard from "./JobOverviewSkeletonCard";
 import PaddingGap from "@/components/layout/PaddingGap";
+import { Clock5, MapPin } from "lucide-react";
 
 export default function JobOverviewCard({ job }: { job: JobsDType }) {
   console.log(job);
@@ -24,9 +25,9 @@ export default function JobOverviewCard({ job }: { job: JobsDType }) {
         </div>
       </div>
       <ul className="flex gap-3 text-sm text-gray-500 font-light my-2">
-        <li>North</li>
-        <li>Full Time</li>
-        <li>Mid level</li>
+        <li className="flex items-center gap-1"><MapPin  className="h-4"/>{job?.location}</li>
+        <li className="flex items-center gap-1"><Clock5  className="h-4"/> {job?.employmentType?.name}</li>
+        <li className="flex items-center gap-1">Mid level</li>
       </ul>
       <div className="flex justify-between">
         <p className="font-bold text-lg"> $29- $30/hr</p>
