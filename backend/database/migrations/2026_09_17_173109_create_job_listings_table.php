@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('apply_url');
             $table->date('posted_date')->nullable();
             $table->date('due_date')->nullable();
-            $table->date('system_posted_date')
+            $table->timestamp('system_posted_date')
                 ->useCurrent();
             $table->timestamps();
             // Foreign tables

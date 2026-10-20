@@ -11,6 +11,7 @@ interface JobsDType{
     apply_url:string,
     posted_date:string,
     due_date:string,
+    system_posted_date:string,
     // Relationship tables
     employmentType?:EmploymentTypeDType,
     jobCategory:JobCategoriesDType,
