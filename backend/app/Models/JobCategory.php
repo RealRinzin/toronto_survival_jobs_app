@@ -10,7 +10,6 @@ class JobCategory extends Model
 {
     /** @use HasFactory<\Database\Factories\JobCategoryFactory> */
     use HasFactory;
-
     /* -------------------------------------------------------------
      | Hide Field
      |-------------------------------------------------------------*/
@@ -32,7 +31,6 @@ class JobCategory extends Model
     {
         return 'slug';
     }
-
 
     /* -------------------------------------------------------------
      | Relationships

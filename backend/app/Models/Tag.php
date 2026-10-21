@@ -30,7 +30,7 @@ class Tag extends Model
    /* -------------------------------------------------------------
      | Relationships
      |-------------------------------------------------------------*/
-
+    //  Jobs
      public function jobListings(){
         return $this->belongsToMany(JobListing::class);
      }

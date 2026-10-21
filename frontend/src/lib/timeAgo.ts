@@ -1,5 +1,5 @@
+// Converting the date-timestamp to the agotime for uservisibility
 const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
-
 const UNITS: [Intl.RelativeTimeFormatUnit, number][] = [
   ["year", 31536000],
   ["month", 2592000],

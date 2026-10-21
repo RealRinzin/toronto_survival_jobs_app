@@ -36,14 +36,17 @@ class City extends Model
     /* -------------------------------------------------------------
      | Relationships
      |-------------------------------------------------------------*/
+    //  Province
     public function province()
     {
         return $this->belongsTo(Province::class);
     }
+    // Areas / Neigbhourhood
     public function areas()
     {
         return  $this->hasMany(Area::class);
     }
+    // Jobs
     public function jobListings()
     {
         return $this->hasMany(JobListing::class);

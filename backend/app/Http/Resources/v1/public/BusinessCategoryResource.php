@@ -21,6 +21,10 @@ class BusinessCategoryResource extends JsonResource
             'slug' => $this->slug,
             'color_code' => $this->color_code,
             'active' => $this->active,
+            // Relationship
+            'companies' => CompanyResource::collection(
+                $this->whenLoaded('companies')
+            )
         ];
     }
 }

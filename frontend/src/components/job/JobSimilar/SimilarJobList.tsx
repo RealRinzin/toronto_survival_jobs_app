@@ -1,9 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function SimilarJobList({job}:{job:JobsDType}) {
   return (
-    <div className="flex justify-between items-center gap-3 my-4 rounded-2xl border border-gray-100 p-3 hover:border-orange-100 hover:cursor-pointer">
+    <Link 
+    href={`/jobs/${job?.slug}`}
+    className="flex justify-between items-center gap-3 my-4 rounded-2xl border border-gray-100 p-3 hover:border-orange-100 hover:cursor-pointer">
       <div className="flex items-center gap-3">
           <Image
             src={`${process.env.API_URL_STORAGE}/img/companies/${job?.company?.logo}`}
@@ -22,6 +25,6 @@ export default function SimilarJobList({job}:{job:JobsDType}) {
         <p className="font-bold">$23 - $30/hr</p>
         <p className="text-sm text-gray-600">Full-time</p>
       </div>
-    </div>
+    </Link>
   );
 }
