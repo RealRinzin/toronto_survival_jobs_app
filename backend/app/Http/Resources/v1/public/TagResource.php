@@ -19,7 +19,10 @@ class TagResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'active' =>$this->active,
+            'active' => $this->active,
+            'test' => 'this',
+            // Count
+            'job_listings_count' => $this->whenCounted('jobListings'),
             // Relationship
         ];
     }
