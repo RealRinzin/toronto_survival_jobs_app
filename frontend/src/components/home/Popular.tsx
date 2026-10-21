@@ -1,5 +1,6 @@
 import React from "react";
 import PageWrapper from "../layout/PageWrapper";
+import HomeTagCard from "../tag/HomeTagCard";
 const POPULAR_SEARCHES = [
   {
     eyebrow: "Start right away",
@@ -102,6 +103,7 @@ export default function HomePopular() {
             </button>
           ))}
         </div>
+        <HomeTagCard/>
       </div>
     </PageWrapper>
   );

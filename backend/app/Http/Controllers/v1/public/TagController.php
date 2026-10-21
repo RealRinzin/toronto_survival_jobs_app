@@ -16,17 +16,22 @@ class TagController extends Controller
     public function index()
     {
         //
-        // $start = microtime(true);
+        $start = microtime(true);
         $tags = Cache::remember(
             'tags:active',
             now()->addHours(1),
             function () {
                 return TagResource::collection(
-                    Tag::active()->withCount('jobListings')->get()
+                    Tag::active()
+                        ->with('jobListings.company','jobListings.employmentType','jobListings.jobCategory')
+                        ->withCount('jobListings')
+                        ->has('jobListings', '>', 1)
+                        ->orderBy('name')
+                        ->get()
                 )->resolve();
             }
         );
-        // Log::info('Tag - total : ' . round((microtime(true) - $start) * 1000, 2) . ' ms');
+        Log::info('Tag - total : ' . round((microtime(true) - $start) * 1000, 2) . ' ms');
         return response()->json(['data' => $tags]);
     }
 
