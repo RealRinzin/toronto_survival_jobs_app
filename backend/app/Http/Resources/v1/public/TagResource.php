@@ -18,8 +18,11 @@ class TagResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'tagline' => $this->tagline,
+            'description'=>$this->description,
             'slug' => $this->slug,
             'active' => $this->active,
+            
             // Count
             'job_listings_count' => $this->whenCounted('jobListings'),
             // Relationship
