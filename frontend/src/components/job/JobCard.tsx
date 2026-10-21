@@ -1,3 +1,4 @@
+import { timeAgo } from "@/lib/timeAgo";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -69,7 +70,7 @@ export default function JobCard({ job }: { job: JobsDType }) {
           </svg>
           {job?.employmentType?.name}
         </span>
-        <span className="text-xs text-light-foreground">{job.posted_date}</span>
+        <span className="text-xs text-light-foreground">{timeAgo(job.system_posted_date)}</span>
       </div>
       <div className="flex flex-wrap gap-1.5 pl-1">
         {job?.tags?.map((tag) => (
