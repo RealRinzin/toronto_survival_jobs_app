@@ -8,6 +8,7 @@ import JobSidebar from "@/components/job/Sidebar/JobSidebar";
 import PaddingGap from "@/components/layout/PaddingGap";
 
 import PageWrapper from "@/components/layout/PageWrapper";
+import TagLink from "@/components/tag/TagLink";
 import { buildMetadata, toPlainText } from "@/lib/metadata";
 import { Metadata } from "next";
 import { Suspense } from "react";
@@ -45,7 +46,7 @@ export default async function JobDetailPage({
             <JobOverviewCard job={job} />
           </Suspense>
           <Suspense fallback={<JobDescriptionSkeletonCard />}>
-            <JobDescriptionCard description={job?.description} />
+            <JobDescriptionCard description={job?.description} tags={job?.tags} />
           </Suspense>
           <AdUnit size="leaderboard" />
           <SimilarJobCard />

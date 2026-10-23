@@ -10,7 +10,11 @@ class Tag extends Model
 {
     /** @use HasFactory<\Database\Factories\TagFactory> */
     use HasFactory;
-
+    // Guarded
+    protected $guarded = ['id'];
+    // Fillable
+    protected $fillable = ['name', 'slug', 'description', 'tagline', 'active'];
+    // Hidden
     protected $hidden = ['created_at', 'updated_at', 'pivot'];
     /* -------------------------------------------------------------
      | Cast protect
@@ -27,13 +31,14 @@ class Tag extends Model
     {
         return 'slug';
     }
-   /* -------------------------------------------------------------
+    /* -------------------------------------------------------------
      | Relationships
      |-------------------------------------------------------------*/
     //  Jobs
-     public function jobListings(){
+    public function jobListings()
+    {
         return $this->belongsToMany(JobListing::class);
-     }
+    }
     /* -------------------------------------------------------------
      | Scopes
      |-------------------------------------------------------------*/
